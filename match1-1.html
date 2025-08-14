@@ -1,0 +1,228 @@
+<html>
+<head>
+<title>A23_Sec01_23101162_Deema-Tabassum-Khan.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec14_23201480_SAYEDA-ARIYAN-FAIROOZ.txt<p></p><pre>
+﻿LAB 2 LINKED LIST
+FUNCTIONS I TOOK HELP OF :
+def lenth(head):
+  c=0
+  val=head
+<a name="5"></a><font color="#FF0000"><a href="match1-0.html#5" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_2.gif"/></a>
+
+  while val!=None:
+    c+=1
+    val=val.next
+  return c
+#----------------------------
+def NodeAt(head,i):
+  val=head
+  c=0
+</font>  while val!=None:
+    if c==i:
+      return val
+    c+=1
+    val=val.next
+  return None
+
+
+#-------------------------
+def reverse(head):
+  fir=None
+  s=None
+  for j in range(lenth(head)):
+      a=head
+      for k in range(lenth(head)-j):
+        if k==(lenth(head)-j)-1:
+          n=Node(a.elem,None)
+          if fir==None:
+            fir=n
+            s=n
+          else:
+            s.next=n
+            s=s.next
+          break
+        a=a.next
+  return fir
+
+
+ASSIGNMENT TASK 1
+<a name="2"></a><font color="#0000FF"><a href="match1-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_6.gif"/></a>
+
+def check_similar(building_1, building_2):
+  #TO DO
+  prothom=building_1
+  ditiyo= building_2
+  n,m=lenth(prothom),lenth(ditiyo)
+  if n!=m:
+    return "Not Similar"
+  while prothom!=None and ditiyo!=None:
+    if prothom.elem!=ditiyo.elem:
+      return "Not Similar"
+    prothom=prothom.next
+    ditiyo=ditiyo.next
+  return "Similar"
+</font>
+
+
+
+ASSIGNMENT TASK 2
+<a name="3"></a><font color="#00FFFF"><a href="match1-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_6.gif"/></a>
+
+def sum_dist(head, arr):
+  #TO DO
+  sum=0
+  for i in arr:
+    tot=head
+    if i&gt;=lenth(head):
+      sum+=0
+    else:
+      for j in range(i+1):
+        if j==i:
+          sum+=tot.elem
+          break
+        tot=tot.next
+  return sum
+</font>
+
+
+
+ASSIGNMENT TASK 3
+<a name="0"></a><font color="#FF0000"><a href="match1-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_15.gif"/></a>
+
+def alternate_merge(head1, head2):
+  #TO DO
+  var=head1
+  var2=head2
+  tip=None
+  new=None
+  counting=0
+  tlen=lenth(head1)+lenth(head2)
+  for i in range(tlen):
+    if counting%2==0 and var!=None:
+      n=Node(var.elem,None)
+      if tip==None:
+        tip=n
+        new=tip
+        var=var.next
+        counting+=1
+      else:
+        new.next=n
+        new=new.next
+        var=var.next
+        counting+=1
+    elif counting%2!=0 and var2!=None:
+      n=Node(var2.elem,None)
+      new.next=n
+      new=new.next
+      var2=var2.next
+      counting+=1
+</font>  return tip
+
+
+
+
+ASSIGNMENT TASK 4
+<a name="1"></a><font color="#00FF00"><a href="match1-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_10.gif"/></a>
+
+def idGenerator(head1, head2, head3):
+  #TO DO
+  head=reverse(head1)
+  avr=head2
+  avr2=head3
+  h=None
+  temp=None
+  while avr!=None and avr2!=None:
+    sum=avr.elem+avr2.elem
+    if sum&gt;=10:
+      sum=sum%10
+    n=Node(sum,None)
+    if h==None:
+      h=n
+      temp=n
+    else:
+      temp.next=n
+      temp=n
+    avr=avr.next
+    avr2=avr2.next
+
+
+  a=NodeAt(head,lenth(head)-1)
+</font>  a.next=h
+  return head
+
+
+
+
+LAB 3 DOUBLY LINKED LIST
+ASSIGNMENT TASK 5
+def sumOddAppend( head ):
+    start= head
+    sum= 0
+    while start.next != head:
+        if start.next.elem%2!=0:
+            wherefound= start.next
+            sum += wherefound.elem
+            start.next = wherefound.next #porer tar shathe link kore dilam so ager ta ar thaklona
+        else:
+            start=start.next
+    creatednewone= Node(sum)
+    creatednewone.next = head
+    start.next=creatednewone# start toh akhon last ta point kortese
+
+
+ASSIGNMENT TASK 6
+def pairJoin(dhead1, dhead2):
+    first = dhead1.next  
+    second= dhead2.next
+    last = dhead1
+    while first is not None and second is not None:
+        porer1=first.next
+        porer2= second.next
+<a name="6"></a><font color="#00FF00"><a href="match1-0.html#6" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_2.gif"/></a>
+
+        last.next =first
+        first.prev = last
+        last = first
+        last.next = second
+        second.prev = last
+        last = second
+</font>        first  = porer1
+        second = porer2
+    if first is not None:
+      bakithakbe= first
+    else:
+      bakithakbe= second
+    while bakithakbe is not None:
+        baki_r_next_ta = bakithakbe.next
+        last.next =bakithakbe
+        bakithakbe.prev = last
+        last =bakithakbe
+        remaining =baki_r_next_ta
+    last.next = dhead1
+    dhead1.prev = last
+
+
+ASSIGNMENT TASK 7
+<a name="4"></a><font color="#FF00FF"><a href="match1-0.html#4" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_4.gif"/></a>
+
+def rangeMove( dhead1, start, end):
+    last = dhead1.prev
+    cur= dhead1.next
+    thamo= dhead1.prev  
+    while cur!= thamo:
+        nextTa =cur.next
+        if start &lt;= cur.elem &lt;= end:
+            cur.prev.next, cur.next.prev = cur.next, cur.prev
+</font>            last.next, cur.prev = cur, last
+            dhead1.prev, cur.next = cur, dhead1
+            last = cur
+        cur= nextTa
+    if start &lt;=thamo.elem &lt;= end:
+        thamo.prev.next, thamo.next.prev = thamo.next, thamo.prev
+        last.next, thamo.prev = thamo, last
+        dhead1.prev,thamo.next =thamo, dhead1</pre>
+</body>
+</html>

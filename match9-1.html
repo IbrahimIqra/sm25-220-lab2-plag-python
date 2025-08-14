@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>A23_Sec22_23101403_Muztabir-Mohammad-Labib.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec12_22299449_Sudeep-Biswas.txt<p></p><pre>
+
+Lab2 Assignments:
+
+1.
+<a name="2"></a><font color="#0000FF"><a href="match9-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_7.gif"/></a>
+
+def check_similar(building_1, building_2):
+  #TO DO
+  while building_1 and building_2:
+    if building_1.elem != building_2.elem:
+      return "Not Similar"
+    building_1 = building_1.next
+    building_2 = building_2.next
+  if building_1 or building_2:
+</font>    return "Not Similar"
+  return "Similar"
+
+2.def sum_dist(head, arr):
+  #TO DO
+  val = {}
+  temp = head
+  idx = 0
+  while temp:
+    val[0] = temp.elem
+    temp = temp.next
+    idx += 1
+  sum = 0
+  for i in arr:
+    if i in val:
+      sum +=val[i]
+    else:
+      sum +=0
+  return sum
+
+3.
+<a name="1"></a><font color="#00FF00"><a href="match9-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_33.gif"/></a>
+
+def alternate_merge(head1, head2):
+    tail1 = head1.next
+    tail2 = head2
+    New = Node(head1.elem)
+    tail = New
+    while tail1 != None or tail2 != None:
+        if tail2 != None and tail1 != None:
+            tail.next = Node(tail2.elem)
+            tail = tail.next
+            tail.next = Node(tail1.elem)
+            tail = tail.next
+            tail1 = tail1.next
+            tail2 = tail2.next
+        elif tail1 == None and tail2 != None:
+            tail.next = Node(tail2.elem)
+            tail =tail.next
+            tail2 = tail2.next
+        else:
+            tail.next = Node(tail2.elem)
+            tail =tail.next
+            tail = tail1.next
+    n=Node(None)
+    tail.next=n
+    return New
+</font>
+4.
+<a name="0"></a><font color="#FF0000"><a href="match9-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_33.gif"/></a>
+
+ef idGenerator(head1, head2, head3):
+    prev = None
+    curr = head1
+    while curr is not None:
+        next_node = curr.next
+        curr.next = prev
+        prev = curr
+        curr = next_node
+    head1 = prev
+
+
+    dummy = Node(None)
+    tail = dummy
+    while head2 and head3:
+        sum = (head2.elem + head3.elem) % 10
+        tail.next = Node(sum)
+        tail = tail.next
+        head2 = head2.next
+        head3 = head3.next
+
+    tail.next = None
+    new_tail = dummy.next
+    while new_tail and new_tail.next:
+        new_tail = new_tail.next
+    if new_tail:
+        new_tail.next = None
+
+    tail = head1
+    while tail.next:
+       tail = tail.next
+    tail.next = dummy.next
+    return head1
+
+
+Lab3 Assignments:
+</font>
+Couldn't solve</pre>
+</body>
+</html>

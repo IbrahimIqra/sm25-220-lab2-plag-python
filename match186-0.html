@@ -1,0 +1,187 @@
+<html>
+<head>
+<title>A23_Sec13_24341262_Khaled-Saifullah-Karim---KHALED-SAIFULLAH-KARIM.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec13_24341262_Khaled-Saifullah-Karim---KHALED-SAIFULLAH-KARIM.txt<p></p><pre>
+Task1:
+def check_similar(building_1, building_2):
+  temp = building_1
+  tempp = building_2
+
+
+  while(temp != None and tempp != None):
+    if(temp.elem == tempp.elem):
+        pass
+    else:
+        return "Not Similar"
+        break
+    temp,tempp = temp.next,tempp.next
+  return "Similar" if temp ==None and tempp == None  else "Not Similar"
+
+
+Task2:
+def sum_dist(head, arr):
+  res = 0
+  for a in arr:
+    c= 0
+    val = 0
+    temp = head
+    while(temp):
+        if(c == a):
+            val = temp.elem
+            break
+        temp = temp.next
+        c +=1
+    res+=val
+  return res
+
+
+Task3
+def alternate_merge(head1, head2):
+    temp,tempp = head1,head2
+    while(temp and tempp):
+        nxt = temp.next
+        nxtt = tempp.next
+        temp.next = tempp
+        if(nxt):
+            tempp.next = nxt
+        else:
+            break
+        temp = nxt
+        tempp = nxtt
+    return head1
+
+
+Task4
+def idGenerator(head1, head2, head3):
+    temp = head1
+    temp2 = head2
+    temp3 = head3
+    c= 0
+
+    dummy = Node(None)
+    tail = dummy
+    prev = None
+
+    while(temp and c&lt;4):
+        next_n = temp.next
+        temp.next = prev
+        prev = temp
+        temp = next_n
+        c+=1
+
+    reverse = prev
+    while(reverse):
+        tail.next = Node(reverse.elem)
+        tail = tail.next
+        reverse = reverse.next
+
+    c = 0
+    while(temp2 and temp3 and c&lt;4):
+        res = temp2.elem+temp3.elem
+
+        tail.next = Node(res%10 if res&gt;=10 else res)
+
+        c+=1
+        tail = tail.next
+        temp2 = temp2.next
+        temp3 = temp3.next
+
+    return dummy
+
+
+Task5
+def sumOddAppend( head ):
+<a name="2"></a><font color="#0000FF"><a href="match186-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_8.gif"/></a>
+
+    pre = head
+    temp = head.next
+    sum = 0
+
+    while(temp!= head):
+        if(temp.elem%2 != 0):
+            sum+=temp.elem
+            pre.next = temp.next
+            temp = pre.next
+        else:
+            pre = pre.next
+</font><a name="3"></a><font color="#00FFFF"><a href="match186-1.html#3" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_5.gif"/></a>
+
+            temp = temp.next
+    nn= Node(sum)
+    temp= head
+    while(temp.next!=head):
+        temp=temp.next
+
+    temp.next = nn
+    nn.next = head
+</font>
+
+Task6
+<a name="0"></a><font color="#FF0000"><a href="match186-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_12.gif"/></a>
+
+def pairJoin( dhead1, dhead2 ):
+    temp = dhead1.next
+    tempp = dhead2.next
+    tail = dhead1
+
+    while(temp and tempp):
+
+        nxt = temp.next
+        nxtt = tempp.next
+
+        tail.next = temp
+        temp.prev = tail
+        tail = temp
+
+        tail.next = tempp
+        tempp.prev = tail
+        tail = tempp
+
+        # if(nxt != dhead1):
+        #     tempp.next = nxt
+        #     nxt.prev = tempp
+        # else:
+        #     tempp.next = dhead1
+        #     dhead1.prev =tempp
+
+        temp = nxt
+        tempp = nxtt
+
+    tail.next = dhead1
+    dhead1.prev = tail
+
+
+Task7
+</font>def rangeMove(dhead, start, end):
+    c = 0
+    iterate = 0
+    temp = dhead.next
+    tail = dhead.prev
+
+    while(temp!=dhead):
+        c+=1
+        temp = temp.next
+    temp = dhead.next
+
+    while(iterate&lt;c):
+<a name="1"></a><font color="#00FF00"><a href="match186-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_9.gif"/></a>
+
+        nn = temp.next
+        if(start&lt;=temp.elem&lt;=end):
+            temp.prev.next = temp.next
+            temp.next.prev = temp.prev
+
+            tail.next = temp
+            temp.prev = tail
+            temp.next =dhead
+            dhead.prev = temp
+            tail = temp
+        
+        temp = nn
+</font>        iterate +=1
+</pre>
+</body>
+</html>

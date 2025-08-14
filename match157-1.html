@@ -1,0 +1,193 @@
+<html>
+<head>
+<title>A23_Sec26_22301089_Safin-Ahmed-Tonmoy.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec13_22299285_Saurov-Biswas.txt<p></p><pre>
+#______________Lab 2 Assignment Tasks_____________
+
+#----------------Assignment Task 1------------------------
+def check_similar(building_1, building_2):
+    head1= building_1
+    temp1=head1
+    head2= building_2
+    temp2=head2
+    flag=False
+    if len_count(temp1) == len_count(temp2) :
+        while temp1 != None or temp2 != None :
+            if temp1.elem == temp2.elem :
+                flag=True
+            else:
+                flag=False
+                break   #need to revise before exam
+            temp1=temp1.next
+            temp2=temp2.next
+    else:
+        flag= False
+# final check------- eta na dile not similar properly update hoyna.
+    if flag == True :
+        return "Similar"
+    if flag == False :
+        return "Not Similar"
+def len_count(ll):
+    temp=ll
+    count=0
+    while temp != None:
+        count+=1
+        temp=temp.next
+    return count
+
+
+#----------------Assignment Task 2------------------------
+
+def sum_dist(head, arr):
+    sum=0
+    for i in range(len(arr)):
+        count=0
+        temp=head
+        dds=arr[i]
+        while temp != None :
+            if count == dds :
+                sum+= temp.elem
+                break
+            count+=1
+            temp=temp.next
+    return sum
+
+
+#----------------Assignment Task 3------------------------
+
+def alternate_merge(head1, head2):
+    new_head= None
+    new_tail=None
+    temp1=head1
+    temp2=head2
+    while temp1 != None and temp2 != None:
+        if new_head==None:
+            new_head=Node(temp1.elem)
+            new_tail=new_head
+        else:
+            new_tail.next=Node(temp1.elem)
+            new_tail=new_tail.next
+        temp1=temp1.next
+        if new_head!=None :
+            new_tail.next=Node(temp2.elem)
+            new_tail=new_tail.next
+        temp2=temp2.next
+    return new_head
+
+
+
+#----------------Assignment Task 4------------------------
+
+
+def idGenerator(head1, head2, head3):
+    dmyhead = Node(None)
+    current = dmyhead
+
+    prev = None
+    while head1 is not None:
+        next_node = head1.next
+        head1.next = prev
+        prev = head1
+        head1 = next_node
+
+    head1 = prev
+
+    while head1 is not None:
+        current.next = Node(head1.elem)
+        current = current.next
+        head1 = head1.next
+
+    while head2 is not None and head3 is not None:
+        sum = head2.elem + head3.elem
+        digit = sum % 10      #division korle eta hbe na
+        current.next = Node(digit)
+        current = current.next
+        head2 = head2.next
+        head3 = head3.next
+
+<a name="0"></a><font color="#FF0000"><a href="match157-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_14.gif"/></a>
+
+    return dmyhead.next
+
+
+#______________Lab 3 Assignment Tasks_____________
+
+#----------------Assignment Task 5 (According to ques number)------------------------
+def sumOddAppend(head):
+    # list traverse kre nite hbe
+    prev = head
+    cur = head.next
+    smdd = 0
+    while cur != head:   #Etay bar bar bhul hoy tai revise kre jbo 
+        if cur.elem % 2 == 1:      # odd er hishab aage
+            #sum er ta te add krtesi
+            smdd += cur.elem       
+            prev.next = cur.next  
+            cur = prev.next  
+        else:
+            prev = cur
+            cur = cur.next
+
+    #ekta extra banay rakhte hbe naile mile na
+    new_node = Node(smdd)
+    prev.next = new_node   #abar shurur ta te connect korbo
+    new_node.next = head
+
+
+#----------------Assignment Task 6 ------------------------
+
+def pairJoin(dhead1, dhead2):
+    cur1 = dhead1.next  
+    cur2 = dhead2.next  
+    tail = dhead1        
+</font>    while cur1 and cur2:
+<a name="1"></a><font color="#00FF00"><a href="match157-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_10.gif"/></a>
+
+        next1 = cur1.next
+        next2 = cur2.next
+        #sob gula same way te connect krte hbe. 
+        tail.next = cur1    #1st list node 
+        cur1.prev = tail
+        tail = cur1
+
+        tail.next = cur2    #2nd list node 
+        cur2.prev = tail
+        tail = cur2
+        #next e agabo
+        cur1 = next1
+        cur2 = next2
+#circular banay nite ebhabe connect krtesi
+    tail.next = dhead1
+    dhead1.prev = tail
+
+#----------------Assignment Task 7------------------------
+
+#Eta kono vabei milate parini. Jotota possible done
+
+def rangeMove(dhead1, start, end):
+    cur = dhead1.next
+    tail = dhead1.prev  
+</font>    stop = dhead1  
+<a name="2"></a><font color="#0000FF"><a href="match157-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_10.gif"/></a>
+
+    while cur != stop:
+        next_node = cur.next  
+        if start &lt;= cur.elem &lt;= end:
+#shurur ta te shoray dibo aage aage
+            cur.prev.next = cur.next
+            cur.next.prev = cur.prev
+            #last e add krtesi
+            tail.next = cur
+    #eta ekdom sirer note er moto krtesi hubuhu
+            cur.prev = tail
+            cur.next = dhead1
+            dhead1.prev = cur
+            tail = cur    #porer tay banay dibo
+            cur = next_node
+</font>
+  #Eta kono vabei miltese na. Modify er jonno help lgbe.</pre>
+</body>
+</html>

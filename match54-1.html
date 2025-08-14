@@ -1,0 +1,227 @@
+<html>
+<head>
+<title>A23_Sec05_23201170_Sadik-Yasir-Mridha.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec21_23101173_MD-TANZIB-ALI-APURBO.txt<p></p><pre>
+﻿#TASK&lt;1
+<a name="4"></a><font color="#FF00FF"><a href="match54-0.html#4" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_6.gif"/></a>
+
+def check_similar(building_1, building_2):
+    while building_1 and building_2:
+        if building_1.color != building_2.color:
+            return "Not Similar"
+        building_1 = building_1.next
+        building_2 = building_2.next
+
+
+    if building_1 or building_2:
+        return "Not Similar"
+
+
+    return "Similar"
+
+
+TASK2:
+</font>def sum_dist(head, arr):
+    total = 0
+    for idx in arr:
+        current = head
+        steps = 0
+        while current is not None and steps &lt; idx:
+            current = current.next
+            steps += 1
+        if current is not None:
+            total += current.value  # Assuming nodes have a .value attribute
+    return total
+
+
+TASK3:
+<a name="3"></a><font color="#00FFFF"><a href="match54-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_6.gif"/></a>
+
+def alternate_merge(head1, head2):
+    if not head1:
+        return head2
+    if not head2:
+        return head1
+
+
+    curr1 = head1
+    curr2 = head2
+
+
+    while curr1 and curr2:
+        next1 = curr1.next
+        next2 = curr2.next
+
+
+        curr1.next = curr2
+</font>
+
+        if not next1:
+            break
+
+
+        curr2.next = next1
+
+
+        curr1 = next1
+        curr2 = next2
+
+
+    return head1
+
+
+
+
+
+
+Task4:
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+def linked_list_to_array(head):
+    values = []
+    current = head
+    while current:
+        values.append(current.data)
+        current = current.next
+    return values
+
+
+def array_to_linked_list(arr):
+    if not arr:
+        return None
+    head = Node(arr[0])
+    current = head
+    for val in arr[1:]:
+        current.next = Node(val)
+        current = current.next
+    return head
+
+
+def generator(head1, head2, head3):
+    a = linked_list_to_array(head1)
+    b = linked_list_to_array(head2)
+    c = linked_list_to_array(head3)
+
+
+    reversed_a = a[::-1]
+
+
+    summed = []
+    for x, y in zip(b, c):
+        total = x + y
+        if total &gt;= 10:
+            total -= 10
+        summed.append(total)
+
+
+    combined = reversed_a + summed
+
+
+    return array_to_linked_list(combined)
+
+
+
+
+
+
+task5:
+
+
+
+
+class Node:
+    def _init_(self, val):
+        self.val = val
+        self.next = None
+
+
+def sumOddAppend(head):
+    if head is None or head.next == head:
+        return
+
+
+<a name="2"></a><font color="#0000FF"><a href="match54-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_6.gif"/></a>
+
+    prev = head
+    curr = head.next
+    odd_sum = 0
+
+
+    while curr != head:
+        if curr.val % 2 == 1:
+            odd_sum += curr.val
+            prev.next = curr.next
+            temp = curr
+</font>            curr = curr.next
+            del temp
+        else:
+            prev = curr
+            curr = curr.next
+
+
+    new_node = Node(odd_sum)
+    new_node.next = head
+    prev.next = new_node
+T
+TASK6
+class DNode:
+    def _init_(self, val):
+        self.val = val
+        self.next = None
+        self.prev = None
+
+
+<a name="0"></a><font color="#FF0000"><a href="match54-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_10.gif"/></a>
+
+def pairJoin(dhead1, dhead2):
+    curr1 = dhead1.next
+    curr2 = dhead2.next
+    tail = dhead1
+
+
+    while curr1 is not None and curr2 is not None:
+        tail.next = curr1
+        curr1.prev = tail
+        tail = curr1
+        curr1 = curr1.next
+
+
+        tail.next = curr2
+        curr2.prev = tail
+        tail = curr2
+        curr2 = curr2.next
+</font>
+
+    tail.next = None
+#TASK7
+def rangeMove(dhead1, start, end):
+    if dhead1 is None or dhead1.next == dhead1:
+        return
+
+
+<a name="1"></a><font color="#00FF00"><a href="match54-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_10.gif"/></a>
+
+    curr = dhead1.next
+    tail = dhead1.prev
+
+
+    while curr != dhead1:
+        nxt = curr.next
+        if start &lt;= curr.val &lt;= end:
+            curr.prev.next = curr.next
+            curr.next.prev = curr.prev
+            tail.next = curr
+            curr.prev = tail
+            curr.next = dhead1
+            dhead1.prev = curr
+</font>            tail = curr
+        curr = nxt</pre>
+</body>
+</html>

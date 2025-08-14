@@ -1,0 +1,278 @@
+<html>
+<head>
+<title>A23_Sec13_24341262_Khaled-Saifullah-Karim---KHALED-SAIFULLAH-KARIM.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec12_22299148_Rezoyan-ayub-mayen---REZOYAN-AYUB-MAYEN.txt<p></p><pre>
+﻿Assignment task 1:
+def check_similar(building_1, building_2):
+    current_1 = building_1
+    current_2 = building_2
+
+
+    while current_1 is not None and current_2 is not None:
+        if current_1.elem != current_2.elem:
+        current_1 = current_1.next
+        current_2 = current_2.next
+
+
+    if current_1 is None and current_2 is None:
+        return 'Same'
+
+
+Assignment task 2:
+def sum_dist(head, arr):
+    total = 0
+
+
+    for distance in arr:
+        current = head
+        count = 0
+        while current is not None and count &lt; distance:
+            current = current.next
+            count += 1
+
+
+        if current is not None:
+            total += current.elem
+        else:
+            total += 0  
+
+
+    return total
+
+
+Assignment task 3:
+def alternate_merge(list1, list2):
+    a = list1
+    b = list2
+
+
+    for _ in range(100000):  
+        if a is None or b is None:
+            break
+
+
+        temp1 = a.next
+        temp2 = b.next
+
+
+        a.next = b
+
+
+        if temp1 is None:
+            break
+
+
+        b.next = temp1
+
+
+        a = temp1
+        b = temp2
+
+
+    return list1
+
+
+Assignment task 4:
+def idGenerator(head1, head2, head3):
+    curr = head1
+    prev = None
+    for _ in range(4):
+        if not curr:
+            break
+        next_node = curr.next
+        curr.next = prev
+        prev = curr
+        curr = next_node
+    head1_reversed = prev
+
+
+    sum_list = None
+    tail = None
+    curr2 = head2
+    curr3 = head3
+
+
+    while curr2 or curr3:
+        carry = 0
+        if curr2 and curr3:
+            digit_sum = curr2.elem + curr3.elem
+            carry = digit_sum // 10
+            digit = digit_sum % 10
+        elif curr2:
+            digit = curr2.value
+        else:
+            digit = curr3.value
+
+
+        new_node = Node(digit)
+        if not sum_list:
+            sum_list = new_node
+            tail = new_node
+        else:
+            tail.next = new_node
+            tail = new_node
+
+
+        if carry:
+            new_node = Node(carry)
+            tail.next = new_node
+            tail = new_node
+
+
+        if curr2:
+            curr2 = curr2.next
+        if curr3:
+            curr3 = curr3.next
+
+
+    curr = head1_reversed
+    while curr and curr.next:
+        curr = curr.next
+    if curr:
+        curr.next = sum_list
+
+
+    curr = head1_reversed
+    for _ in range(7):
+        if not curr:
+            break
+        curr = curr.next
+    if curr:
+        total = 0
+        temp = head1_reversed
+        for _ in range(8):
+            if temp:
+                total += temp.elem
+                temp = temp.next
+        while total &gt; 10:
+            carry = total // 10
+            curr.value = total % 10
+            new_node = Node(carry)
+            new_node.next = curr.next
+            curr.next = new_node
+            total = carry
+        if total &gt; 9:
+            curr.value = total % 10
+            new_node = Node(total // 10)
+            new_node.next = curr.next
+            curr.next = new_node
+
+
+    return head1_reversed
+
+
+
+
+Assignment task 5:
+def sumOddAppend(head):
+    if head.next == head:
+        new_node = Node(0)
+        head.next = new_node
+        new_node.next = head
+        return
+
+
+<a name="2"></a><font color="#0000FF"><a href="match186-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_5.gif"/></a>
+
+    prev = head
+    curr = head.next
+    total = 0
+
+
+    while curr != head:
+        if curr.elem % 2 != 0:
+            total += curr.elem
+            prev.next = curr.next  
+            curr = prev.next
+        else:
+            prev = curr
+</font><a name="3"></a><font color="#00FFFF"><a href="match186-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_4.gif"/></a>
+
+            curr = curr.next
+
+
+    new_node = Node(total)
+    last = head
+    while last.next != head:
+        last = last.next
+    last.next = new_node
+    new_node.next = head
+</font>
+
+Assignment task 6:
+<a name="0"></a><font color="#FF0000"><a href="match186-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_9.gif"/></a>
+
+def pairJoin(dh1, dh2):
+    curr1 = dh1.next
+    curr2 = dh2.next
+    tail = dh1
+
+
+    while curr1 and curr2:
+        next1 = curr1.next
+        next2 = curr2.next
+
+
+       
+        tail.next = curr1
+        curr1.prev = tail
+        tail = curr1
+
+
+       
+        tail.next = curr2
+        curr2.prev = tail
+        tail = curr2
+
+
+       
+        curr1 = next1
+        curr2 = next2
+
+
+
+
+    tail.next = dh1
+    dh1.prev = tail
+    dh1.next.prev = dh1
+</font>
+
+Assignment task 7:
+def rangeMove(dh, st, en):
+    p = dh.next
+    last = dh.prev
+    stopper = last.next
+
+
+    for _ in range(100000):  
+        if p == stopper:
+            break
+
+
+<a name="1"></a><font color="#00FF00"><a href="match186-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_6.gif"/></a>
+
+        nxt_node = p.next
+
+
+        if st &lt;= p.elem &lt;= en:
+            p.prev.next = p.next
+            p.next.prev = p.prev
+
+
+       
+            last.next = p
+            p.prev = last
+            p.next = dh
+            dh.prev = p
+
+
+           
+            last = p
+
+
+        p = nxt_node</font></pre>
+</body>
+</html>

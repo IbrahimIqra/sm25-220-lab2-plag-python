@@ -1,0 +1,232 @@
+<html>
+<head>
+<title>A23_Sec25_23141004_Ahammad-Ha-meem-Safwat.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec21_22201243_Md.-Lursab-Alam-Prodhan---MD.-LURSAB-ALAM-PRODHAN.txt<p></p><pre>
+LAB 02 :
+
+TASK 01 (Building Blocks) :
+
+<a name="1"></a><font color="#00FF00"><a href="match53-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_6.gif"/></a>
+
+def check_similar(building_1, building_2):
+  
+    node1=building_1
+    node2=building_2
+
+    while node1!=None and node2!=None:
+        if node1.elem!=node2.elem:
+            return 'Not Similar'
+        node1=node1.next
+        node2=node2.next
+
+    if node1!= None or node2!= None:
+</font>        return 'Not Similar'
+
+    return 'Similar'
+
+
+
+TASK 02 (Sum of Nodes) :
+
+
+def sum_dist(head, arr):
+    total=0
+
+    for i in range(len(arr)):
+        steps=0
+        current=head
+
+        while current !=None and steps&lt;arr[i]:
+            current=current.next
+            steps=steps+1
+
+        if current!=None:
+            total=total+current.elem
+        else:
+            total=total+0
+
+    return total
+
+
+
+TASK 03 (Alternate Merge) :
+
+def alternate_merge(head1, head2):
+    if head1 is None:
+        return head2
+    if head2 is None:
+        return head1
+
+    a = Node(head1.elem)
+    a_temp = a
+    temp1 = head1.next
+    temp2 = head2
+
+    flag = True
+
+    while temp1 is not None or temp2 is not None:
+        if flag:
+            if temp1:
+                a_temp.next = Node(temp1.elem)
+                temp1 = temp1.next
+                a_temp = a_temp.next
+            flag = False
+        else:
+            if temp2:
+                a_temp.next = Node(temp2.elem)
+                temp2 = temp2.next
+                a_temp = a_temp.next
+            flag = True
+
+    return a
+
+
+
+TASK 04 (ID Generator):
+
+
+def idGenerator(head1, head2, head3):
+   
+    temp=head1
+    prev=None
+<a name="4"></a><font color="#FF00FF"><a href="match53-0.html#4" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_3.gif"/></a>
+
+    while temp is not None:
+        next_node=temp.next
+        temp.next=prev
+        prev=temp
+        temp=next_node
+    head1=prev
+
+   
+    temp1=head1
+    while temp1.next is not None:
+</font>        temp1=temp1.next
+
+    temp2=head2
+    temp3=head3
+    while temp2 is not None and temp3 is not None:
+        a=temp2.elem
+        b=temp3.elem
+        if a+b&gt;=10:
+            digit=(a+b)%10
+        else:
+            digit=a+b
+
+        new_node=Node(digit)
+        temp1.next=new_node
+        temp1=new_node
+
+        temp2=temp2.next
+        temp3=temp3.next
+
+    return head1
+
+
+
+
+LAB 03 :
+
+
+TASK 05 (Sum Odd Append) :
+
+
+
+def sumOddAppend(head):
+    cur=head.next
+    prev=head
+    total=0
+
+    while cur!=head:
+        if cur.elem%2!=0:
+<a name="3"></a><font color="#00FFFF"><a href="match53-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_6.gif"/></a>
+
+            total=total+cur.elem
+            prev.next=cur.next
+            cur=prev.next
+        else:
+            prev=cur
+            cur=cur.next
+
+    new_node=Node(total)
+    prev.next=new_node
+    new_node.next=head
+</font>
+
+TASK 06 (Pair Join) :
+
+<a name="0"></a><font color="#FF0000"><a href="match53-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_12.gif"/></a>
+
+def pairJoin( dhead1, dhead2 ):
+    a=dhead1.next
+    b=dhead2.next
+    cur=dhead1  
+
+    while a!= None and b!= None:
+        next1=a.next
+        next2=b.next
+        cur.next=a
+        a.prev=cur
+        a.next=b
+        b.prev=a
+        cur=b
+        a=next1
+        b=next2  
+        
+    cur.next=dhead1
+    dhead1.prev=cur 
+
+
+TASK 07 (Range Move) :
+</font>
+
+<a name="5"></a><font color="#FF0000"><a href="match53-0.html#5" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_3.gif"/></a>
+
+def rangeMove(dhead1, start, end):
+    cur=dhead1.next
+    tail=dhead1.prev  
+
+    while cur!=dhead1:
+        next_node=cur.next  
+</font>
+<a name="2"></a><font color="#0000FF"><a href="match53-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_6.gif"/></a>
+
+        if cur.elem&gt;=start and cur.elem&lt;=end:
+           
+            cur.prev.next=cur.next
+            cur.next.prev=cur.prev
+
+           
+            tail.next=cur
+            cur.prev=tail
+            cur.next=dhead1
+            dhead1.prev=cur
+</font>
+           
+            tail=cur
+
+        cur=next_node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</body>
+</html>

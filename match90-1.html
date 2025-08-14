@@ -1,0 +1,196 @@
+<html>
+<head>
+<title>A23_Sec05_23201047_Daud-Ibrahim-Hassan.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec20_23101340_Md-Masud-Bin-Faruk.txt<p></p><pre>
+﻿Assignment Task 01:
+
+
+<a name="2"></a><font color="#0000FF"><a href="match90-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_8.gif"/></a>
+
+def check_similar(building_1, building_2):
+  x1 = building_1
+  x2 = building_2
+
+
+  while x1 and x2:
+    if x1.elem != x2.elem:
+      return 'Not Similar'
+    x1 = x1.next
+    x2 = x2.next
+
+
+  if x1 is None and x2 is None:
+    return 'Similar'
+  else:
+    return 'Not Similar'
+
+
+Assignment Task 02:
+</font>
+
+<a name="4"></a><font color="#FF00FF"><a href="match90-0.html#4" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_5.gif"/></a>
+
+def sum_dist(head, arr):
+  total_sum = 0
+  for dist in arr:
+    b = head
+    for i in range(dist):
+      if b is None:
+        break
+      b = b.next
+    if b:
+</font>      total_sum += b.elem
+  return total_sum
+
+
+Assignment Task 03:
+
+
+def alternate_merge(head1, head2):  
+  a= head1
+  b= head2
+  temp_head=Node(head1.elem) 
+  temp = temp_head
+  a = a.next #move node -&gt; head1
+  if a == None:
+    return b
+  if b == None:
+    return a
+  while a and b :
+    temp.next =Node(b.elem) 
+    temp = temp.next
+    b= b.next #move node -&gt; head2
+    if a:
+       temp.next = Node(a.elem) 
+       temp = temp.next    
+       a = a.next     
+    if b:
+      temp.next = b 
+  return temp_head
+
+
+Assignment Task 04:
+
+
+def idGenerator(head1, head2, head3):
+  a = head1
+  vl=[]
+  while a:
+        vl.append(a.elem)
+        a= a.next
+  first_four = vl[-4:][::-1]
+    
+  last_four = []
+  b, c = head2, head3
+  while b and c:
+        sum_digits = b.elem + c.elem
+        last_four.append(sum_digits % 10)  
+        b,c = b.next, c.next
+  stu_id_dgts = first_four + last_four 
+  dh = Node(None)
+  a= dh
+  for dgt in stu_id_dgts:
+    a.next = Node(dgt)
+    a = a.next
+  return dh.next
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Assignment Task 05:
+
+
+def sumOddAppend( head ):
+    
+    prev = head
+    cur = head.next
+    odd_s = 0
+<a name="1"></a><font color="#00FF00"><a href="match90-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_9.gif"/></a>
+
+    while cur != head:
+        if cur.elem % 2 == 1:
+            odd_s += cur.elem
+            prev.next = cur.next
+            cur = cur.next
+        else:
+            prev = cur
+            cur = cur.next
+    new_node = Node(odd_s)
+    prev.next = new_node
+    new_node.next = head  
+</font>
+
+Assignment Task 06:
+
+
+def pairJoin(dhead1, dhead2):
+    cu1 = dhead1.next
+<a name="3"></a><font color="#00FFFF"><a href="match90-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_6.gif"/></a>
+
+    cu2 = dhead2.next
+    t = dhead1  
+
+
+    while cu1 and cu2:
+        next1 = cu1.next
+        next2 = cu2.next
+        t.next = cu1
+        cu1.prev = t
+        t = cu1
+</font>        t.next = cu2
+        cu2.prev = t
+        t = cu2
+        cu1 = next1
+        cu2 = next2
+    t.next = dhead1
+    dhead1.prev = t
+
+
+
+
+
+
+
+
+
+
+Assignment Task 07:
+
+
+def rangeMove(dhead1, start, end):
+<a name="0"></a><font color="#FF0000"><a href="match90-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_11.gif"/></a>
+
+    cu= dhead1.next
+    t = dhead1.prev
+    while cu != dhead1:
+        nxt = cu.next
+        if start &lt;= cu.elem &lt;= end:
+            cu.prev.next = cu.next
+            cu.next.prev = cu.prev
+            t.next = cu
+            cu.prev = t
+            cu.next = dhead1
+            dhead1.prev = cu
+</font>            t = cu
+        cu = nxt</pre>
+</body>
+</html>

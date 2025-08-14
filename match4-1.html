@@ -1,0 +1,182 @@
+<html>
+<head>
+<title>A23_Sec20_22201357_Towsif-Ahmed.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec25_22299128_Md.-Ifteshamul-Hossain.txt<p></p><pre>
+﻿Assignment Task 1:
+
+
+<a name="2"></a><font color="#0000FF"><a href="match4-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_11.gif"/></a>
+
+def check_similar(building_1, building_2):
+ #TO DO
+ cur1=building_1
+ cur2=building_2
+
+
+ while cur1!=None and cur2!=None:
+   if cur1.elem!=cur2.elem:
+     return "Not Similar"
+   cur1=cur1.next
+   cur2=cur2.next
+ if cur1==None and cur2==None:
+   return "Similar"
+ else:
+   return "Not Similar"
+</font>
+
+
+
+Assignment Task 2:
+
+
+<a name="4"></a><font color="#FF00FF"><a href="match4-0.html#4" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_9.gif"/></a>
+
+def sum_dist(head, arr):
+ #TO DO
+ sum=0
+ for i in range(len(arr)):
+   count=0
+   cur=head
+   while cur!=None:
+     if count==arr[i]:
+       sum+=cur.elem
+       break
+     cur=cur.next
+     count+=1
+ return sum
+</font>
+
+
+
+Assignment Task 3:
+
+
+<a name="1"></a><font color="#00FF00"><a href="match4-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_17.gif"/></a>
+
+def alternate_merge(head1, head2):
+ #TO DO
+ cur1=head1.next
+ cur2=head2
+ newhead=Node(head1.elem,None)
+ newcur=newhead
+ count=0
+ while True:
+   if cur1==None and cur2==None:
+     break
+   if count%2==0 and count!=0:
+     newcur.next=cur1
+     newcur=cur1
+     cur1=cur1.next
+   elif count%2!=0:
+     newcur.next=cur2
+     newcur=cur2
+     cur2=cur2.next
+   count+=1
+ return newhead
+</font>
+
+
+
+Assignment Task 4:
+
+
+<a name="0"></a><font color="#FF0000"><a href="match4-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_21.gif"/></a>
+
+def idGenerator(head1, head2, head3):
+ #TO DO
+ cur1=head1
+ while cur1!=None:
+   new=Node(cur1.elem,None)
+   if cur1==head1:
+     last=new
+   else:
+     new.next=head
+   head=new
+   cur1=cur1.next
+ cur2=head2
+ cur3=head3
+ newcur=last
+ while cur2!=None or cur3!=None:
+   sum=cur2.elem+cur3.elem
+   if sum&gt;=10:
+     sum=sum%10
+   new=Node(sum,None)
+   newcur.next=new
+   newcur=new
+   cur2=cur2.next
+   cur3=cur3.next
+ return head
+
+
+
+
+
+
+Assignment Task 5:
+</font>def sumOddAppend( head ):
+   #TO DO
+   if head == None or head.next == head:
+  
+     return
+
+
+   prev = head
+   cur = head.next
+   total_odd = 0
+
+
+<a name="3"></a><font color="#00FFFF"><a href="match4-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_9.gif"/></a>
+
+   while cur != head:
+     if cur.data % 2 == 1:
+       total_odd += cur.data
+       prev.next = cur.next
+       cur=cur.next
+
+
+     else:
+       prev=cur
+       cur = cur.next
+
+
+   if total_odd &gt; 0:
+     new = Node(total_odd)
+     prev.next = new
+</font>     new.next=head
+
+
+
+
+
+
+Assignment Task 6:
+def pairJoin( dhead1, dhead2 ):
+
+
+   #TO DO
+ cur_1 = dhead1.next
+ cur_2=dhead2.next
+ tail=dhead1
+
+
+ while cur_1:
+   tail.next = cur_1
+   cur_1.prev = tail
+   tail = cur_1
+   cur_1 = cur_1.next
+
+
+ while cur_2:
+   tail.next = cur_2
+   cur_2.prev = tail
+   tail = cur_2
+   cur_2 = cur_2.next
+
+
+ tail.next = dhead1
+ dhead1.prev = tail</pre>
+</body>
+</html>

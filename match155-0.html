@@ -1,0 +1,175 @@
+<html>
+<head>
+<title>A23_Sec13_23301406_ARHAM-MUTTAQEEN.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec13_23301406_ARHAM-MUTTAQEEN.txt<p></p><pre>
+# Assignment 2
+
+
+# Task 1
+def check_similar(building_1, building_2):
+    while building_1.next and building_2.next:
+        if building_1.elem != building_2.elem:
+            return "Not Similar"
+
+        building_1 = building_1.next
+        building_2 = building_2.next
+
+    if building_1.next and not building_2.next:
+        return "Not Similar"
+
+    if building_2.next and not building_1.next:
+        return "Not Similar"
+
+    return "Similar"
+
+
+# Task 2
+def sum_dist(head, arr):
+    total = 0
+    for distance in arr:
+        steps = 0
+        node = head
+
+        while steps &lt; distance and node is not None:
+            node = node.next
+            steps += 1
+
+        if node is not None:
+            total += node.elem
+
+    return total
+
+
+# Task 3
+def alternate_merge(head1, head2):
+<a name="3"></a><font color="#00FFFF"><a href="match155-1.html#3" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_8.gif"/></a>
+
+    current1 = head1
+    current2 = head2
+
+    while current1 and current2:
+        node1 = current1.next
+        node2 = current2.next
+
+        current1.next = current2
+        if node1:
+            current2.next = node1
+
+        current1 = node1
+        current2 = node2
+
+    return head1
+</font>
+
+# Task 4
+def check_similar(building_1, building_2):
+    while building_1.next and building_2.next:
+        if building_1.elem != building_2.elem:
+            return "Not Similar"
+
+        building_1 = building_1.next
+        building_2 = building_2.next
+
+    if building_1.next and not building_2.next:
+        return "Not Similar"
+
+    if building_2.next and not building_1.next:
+        return "Not Similar"
+
+    return "Similar"
+
+
+# Assignment 3
+
+
+# Task 5
+def sumOddAppend(list):
+    sumOdd = 0
+
+    previous = head
+    current = head.next
+
+<a name="2"></a><font color="#0000FF"><a href="match155-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_10.gif"/></a>
+
+    while current != head:
+        if current.elem % 2 != 0:
+            sumOdd += current.elem
+
+            previous.next = current.next
+            current = current.next
+
+        else:
+            previous = current
+            current = current.next
+
+    if sumOdd != 0:
+        node = Node(sumOdd)
+        last = head
+</font>
+        while last.next != head:
+            last = last.next
+
+        last.next = node
+        node.next = head
+
+
+# Task 6
+<a name="0"></a><font color="#FF0000"><a href="match155-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_15.gif"/></a>
+
+def pairJoin(dhead1, dhead2):
+    current1 = dhead1.next
+    current2 = dhead2.next
+
+    while current1 != dhead1 and current2 != dhead2:
+        next1 = current1.next
+        next2 = current2.next
+
+        current1.next = current2
+        current2.prev = current1
+
+        if next1 != dhead1:
+            current2.next = next1
+            next1.prev = current2
+
+        else:
+            current2.next = dhead1
+            dhead1.prev = current2
+
+        current1 = next1
+        current2 = next2
+</font>
+
+# Task 7
+def rangeMove(dhead1, start, end):
+    current = dhead1.next
+
+    if dhead1.prev != dhead1:
+        last = dhead1.prev
+
+    else:
+        last = dhead1
+
+<a name="1"></a><font color="#00FF00"><a href="match155-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_10.gif"/></a>
+
+    while current != dhead1:
+        next = current.next
+
+        if start &lt;= current.elem &lt;= end:
+            current.prev.next = current.next
+            current.next.prev = current.prev
+
+            last.next = current
+
+            current.prev = last
+            current.next = dhead1
+
+            dhead1.prev = current
+</font>            last = current
+
+        current = next
+</pre>
+</body>
+</html>

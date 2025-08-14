@@ -1,0 +1,203 @@
+<html>
+<head>
+<title>A23_Sec19_23301308_KAZI-ISTIAQ-YUSUF-ERAZ.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec19_23301308_KAZI-ISTIAQ-YUSUF-ERAZ.txt<p></p><pre>
+﻿Lab-2
+
+
+Task-1
+
+
+<a name="2"></a><font color="#0000FF"><a href="match123-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_7.gif"/></a>
+
+def check_similar(building_1, building_2):
+  # check every element of two lists. check if all are equal or not.
+  temp1 = building_1
+  temp2 = building_2
+  while temp1 != None and temp2 != None:
+    if temp1.elem != temp2.elem:
+      return 'Not Similar'
+    temp1 = temp1.next
+    temp2 = temp2.next
+
+
+  if temp1 == temp2: # handling different len lists
+</font>    return 'Similar'
+  else:
+    return 'Not Similar'
+
+
+
+
+Task-2
+
+
+def sum_dist(head, arr):
+  LL_len = length(head) # using the function I created
+  sum = 0
+  for i in arr:
+    if LL_len &gt; i: # only correct index's values will add, others don't
+      idx = 0
+      temp = head
+      while idx &lt; i:
+        temp = temp.next # getting to the exact node
+        idx += 1
+      sum += temp.elem
+  return sum
+
+
+Task-3
+def alternate_merge(head1, head2):
+  temp1 = head1.next
+  temp2 = head2
+
+
+  head3 = Node(head1.elem, None)
+  temp3 = head3
+  while temp1 != None or temp2 != None:
+    if temp2 != None:
+      temp3.next = Node(temp2.elem, None)
+      temp3 = temp3.next
+      temp2 = temp2.next
+    if temp1 != None:
+      temp3.next = Node(temp1.elem, None)
+      temp3 = temp3.next
+      temp1 = temp1.next
+
+
+  return head3
+
+
+Task-4
+
+
+def idGenerator(head1, head2, head3):
+  # adding other 2 list's elements like (x + y)%10 and appending them left to right in new list
+  head = Node((head2.elem + head3.elem) % 10, None)
+  temp = head
+  temp2 = head2.next
+  temp3 = head3.next
+
+
+  while temp2 != None and temp3 != None:
+    new_node = Node((temp2.elem + temp3.elem) % 10, None)
+    temp.next = new_node
+    temp = temp.next
+
+
+    temp2 = temp2.next
+    temp3 = temp3.next
+  # now I have 9 -&gt; 5 -&gt; 4 -&gt; 2
+
+
+  # creating a new list which reverses first list and linking with the one created
+  temp1 = head1
+  while temp1 != None:
+    new_node = Node(temp1.elem, None)
+    new_node.next = head
+    head = new_node
+    temp1 = temp1.next
+  return head # Now, complete
+
+
+
+
+
+
+Lab-3
+
+
+Task-1
+
+
+def sumOddAppend(dummyHead):
+    cur = dummyHead.next
+    prev = dummyHead
+    sum = 0  # sum of odd numbers
+
+
+    while cur != dummyHead:
+        if cur.value % 2 != 0:
+<a name="3"></a><font color="#00FFFF"><a href="match123-1.html#3" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_5.gif"/></a>
+
+            sum = sum + cur.value
+            # try to remove it
+            prev.next = cur.next
+            # forgot to move prev here in case cur is not removed
+            cur = cur.next
+        else:
+            prev = cur
+            cur = cur.next
+
+
+    # now adding the sum at the end
+    newNode = Node(sum)
+    temp = dummyHead
+</font>    while temp.next != dummyHead:
+        temp = temp.next
+    temp.next = newNode
+    newNode.next = dummyHead
+
+
+Task 2
+
+
+<a name="0"></a><font color="#FF0000"><a href="match123-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_12.gif"/></a>
+
+def pairJoin(head1, head2):
+    a = head1.next
+    b = head2.next
+    tail = head1
+
+
+    while a != head1 and b != head2:
+        tail.next = a
+        a.prev = tail
+        tail = a
+        a = a.next
+
+
+        tail.next = b
+        b.prev = tail
+        tail = b
+        b = b.next
+
+
+    tail.next = head1
+    head1.prev = tail
+</font>
+
+Task-3
+<a name="4"></a><font color="#FF00FF"><a href="match123-1.html#4" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_4.gif"/></a>
+
+def rangeMove(dummyHead, start, end):
+    cur = dummyHead.next
+    tail = dummyHead.prev  # we assume this is valid
+
+
+    while cur != dummyHead:
+        nextNode = cur.next
+
+
+        if cur.value &gt;= start and cur.value &lt;= end:
+</font><a name="1"></a><font color="#00FF00"><a href="match123-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_8.gif"/></a>
+
+            # disconnect cur
+            cur.prev.next = cur.next
+            cur.next.prev = cur.prev
+
+
+            # insert at end
+            tail.next = cur
+            cur.prev = tail
+            cur.next = dummyHead
+            dummyHead.prev = cur
+
+
+            tail = cur
+        cur = nextNode</font></pre>
+</body>
+</html>

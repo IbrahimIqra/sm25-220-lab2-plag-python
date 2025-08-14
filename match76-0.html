@@ -1,0 +1,233 @@
+<html>
+<head>
+<title>A23_Sec03_23201672_Quazi-Mufrad-Mahid.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec03_23201672_Quazi-Mufrad-Mahid.txt<p></p><pre>
+﻿
+Assignment Task 1: Building Block
+<a name="0"></a><font color="#FF0000"><a href="match76-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_6.gif"/></a>
+
+def check_similar(building_1, building_2):
+    current_1 = building_1
+    current_2 = building_2
+
+    while current_1 != None and current_2 != None:
+        if current_1.elem != current_2.elem:
+            return "Not Similar"
+        current_1 = current_1.next
+        current_2 = current_2.next
+
+    if current_1 != None or current_2 != None:
+        return "Not Similar"
+    return "Similar"
+</font>
+
+Assignment Task 2: Sum of Nodes
+<a name="3"></a><font color="#00FFFF"><a href="match76-1.html#3" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_4.gif"/></a>
+
+def sum_dist(head, arr):
+    total = 0
+
+    for distance in arr:
+        current = head
+        steps = 0
+
+        while current != None and steps &lt; distance:
+            current = current.next
+            steps += 1
+
+        if current != None:
+</font>            total += current.elem
+    return total
+
+
+Assignment Task 3: Alternative Merge
+def alternate_merge(head1, head2):
+    if head1 == None:
+        return head2
+
+    if head2 == None:
+        return head1
+    merged_head = head1
+<a name="2"></a><font color="#0000FF"><a href="match76-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_4.gif"/></a>
+
+    current1 = head1
+    current2 = head2
+
+    while current1 != None and current2 != None:
+        next1 = current1.next
+        next2 = current2.next
+        current1.next = current2
+
+        if next1 != None:
+            current2.next = next1
+</font>        else:
+            current2.next = next2
+            break
+        current1 = next1
+        current2 = next2
+
+    return merged_head
+
+Assignment Task 3: Alternative Merge
+def check_similar(building_1, building_2):
+    array_1 = ""
+    temp = building_1
+    count_1 = 0
+
+    while temp != None:
+        array_1 = array_1 + temp.elem + ","
+        count_1 = count_1 + 1
+        temp = temp.next
+    array_2 = ""
+    temp = building_2
+    count_2 = 0
+
+    while temp != None:
+        array_2 = array_2 + temp.elem + ","
+        count_2 = count_2 + 1
+        temp = temp.next
+
+    if count_1 != count_2:
+        return "Not Similar"
+
+    if array_1 == array_2:
+        return "Similar"
+    else:
+        return "Not Similar"
+
+
+
+Assignment Task 4: ID Generator
+def idGenerator(head1, head2, head3):
+    arr1 = [0] * 4
+    temp = head1
+    count = 0
+
+    while temp != None:
+        arr1[count] = temp.elem
+        temp = temp.next
+        count = count + 1
+    arr2 = [0] * 4
+    arr3 = [0] * 4
+    temp2 = head2
+    temp3 = head3
+    count = 0
+
+    while temp2 != None and temp3 != None:
+        arr2[count] = temp2.elem
+        arr3[count] = temp3.elem
+        count = count + 1
+        temp2 = temp2.next
+        temp3 = temp3.next
+    result = [0] * 8
+    result[0] = arr1[3]
+    result[1] = arr1[2]
+    result[2] = arr1[1]
+    result[3] = arr1[0]
+
+    for i in range(4):
+        sum_value = arr2[i] + arr3[i]
+        if sum_value &gt;= 10:
+            result[4 + i] = sum_value % 10
+
+        else:
+            result[4 + i] = sum_value
+    new_head = Node(result[0])
+    current = new_head
+
+    for i in range(1, 8):
+        current.next = Node(result[i])
+        current = current.next
+    return new_head
+
+
+
+Assignment Task 5
+def sumOddAppend( head ):
+    oddSum = 0
+    current = head.next
+    previous = head
+    lastNode = None
+
+<a name="4"></a><font color="#FF00FF"><a href="match76-1.html#4" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_4.gif"/></a>
+
+    while current != head:
+        if current.elem % 2 == 1: 
+            oddSum += current.elem
+            previous.next = current.next
+            current = current.next
+        else:
+            previous = current
+            current = current.next
+</font>
+    if head.next != head: 
+        lastNode = head.next
+        while lastNode.next != head:
+            lastNode = lastNode.next
+    else:
+        lastNode = head
+
+    if oddSum &gt; 0:
+        newNode = Node(oddSum)
+        newNode.next = head
+        lastNode.next = newNode
+
+
+
+Assignment Task 6
+def pairJoin( dhead1, dhead2 ):
+    node1 = dhead1.next
+    node2 = dhead2.next    
+    current = dhead1  
+
+    while node1 is not None or node2 is not None:
+        if node1 is not None:
+            next_node1 = node1.next
+            current.next = node1
+            node1.prev = current
+            current = node1
+            node1 = next_node1
+        
+        if node2 is not None:
+            next_node2 = node2.next
+            current.next = node2
+            node2.prev = current
+            current = node2
+            node2 = next_node2
+    
+    current.next = dhead1
+    dhead1.prev = current
+
+
+Assignment Task 7
+<a name="5"></a><font color="#FF0000"><a href="match76-1.html#5" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_3.gif"/></a>
+
+def rangeMove( dhead1, start, end ):
+    last_node = dhead1.prev
+    current = dhead1.next
+
+    while current != dhead1:
+        next_node = current.next  
+
+        if start &lt;= current.elem &lt;= end:
+</font><a name="1"></a><font color="#00FF00"><a href="match76-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_5.gif"/></a>
+
+            current.prev.next = current.next
+            current.next.prev = current.prev
+            last_node.next = current
+            current.prev = last_node
+            current.next = dhead1
+            dhead1.prev = current
+            last_node = current
+        current = next_node
+</font>
+
+
+
+
+</pre>
+</body>
+</html>

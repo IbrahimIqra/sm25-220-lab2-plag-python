@@ -1,0 +1,188 @@
+<html>
+<head>
+<title>A23_Sec03_23301647_Ahmed-Naim-Rahman.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec03_23301647_Ahmed-Naim-Rahman.txt<p></p><pre>
+﻿LAB: 2
+
+
+Task1: Building blocks
+def check_similar(building_1, building_2):
+   temp1 = building_1
+   temp2 = building_2
+   if_same = True
+   while temp1 != None and temp2 != None:
+     if temp1.elem != temp2.elem:
+        if_same = False
+        break
+     temp1 = temp1.next
+     temp2 = temp2.next
+
+
+   if if_same == True:
+     print("Similar")
+   else:
+     print("Not Similar")
+
+
+
+
+
+
+Task2: Sum of Nodes:
+def sum_dist(head, arr):
+  temp = head
+  new_list = []
+  sum = 0
+  while temp != None:
+     new_list.append(temp.elem)
+     temp = temp.next
+ 
+  for i in arr:
+    if i &lt; len(new_list):
+       sum += new_list[i]
+    else:
+      sum += 0  
+  return sum  
+
+
+
+
+Task3: Alternate Merge
+def alternate_merge(head1, head2):
+  temp1 = head1
+  temp2 = head2
+<a name="3"></a><font color="#00FFFF"><a href="match31-1.html#3" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_7.gif"/></a>
+
+  while temp1 != None and temp2 != None:
+    next1 = temp1.next
+    next2 = temp2.next
+   
+    temp1.next = temp2
+    if next1 == None:
+      break
+    temp2.next = next1
+    temp1 = next1
+    next1 = temp1.next
+</font>    temp2 = next2
+    #next2 = temp2.next
+
+
+  return head1    
+
+
+
+
+
+
+<a name="4"></a><font color="#FF00FF"><a href="match31-1.html#4" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_7.gif"/></a>
+
+Task4:Id generator
+def idGenerator(head1, head2, head3):
+  curr = head1
+  prev = None
+  while curr != None:
+    temp1 = curr.next
+    curr.next = prev
+    prev = curr
+    curr = temp1
+ 
+  n_head = Node(prev.elem)
+</font>  current = n_head
+  temp = prev.next
+  while temp != None:
+    current.next = Node(temp.elem)
+    current = current.next
+    temp = temp.next
+ 
+  temp2 = head2
+  temp3 = head3
+  total = 0
+<a name="1"></a><font color="#00FF00"><a href="match31-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_8.gif"/></a>
+
+  while temp2 != None and temp3 != None:
+    total = temp2.elem + temp3.elem
+    if total &gt;= 10:
+       total = total % 10
+    current.next = Node(total)
+    current = current.next  
+    temp2 = temp2.next
+    temp3 = temp3.next
+</font>
+
+  return n_head
+
+
+
+
+
+
+
+
+                                              LAB: 3
+
+
+
+
+
+
+Task5: Sum odd
+<a name="0"></a><font color="#FF0000"><a href="match31-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_13.gif"/></a>
+
+def sumOddAppend( head ):
+    temp = head.next
+    prev = head
+    sum = 0
+   
+    while temp!= head:
+        if temp.elem % 2 != 0:
+            sum += temp.elem
+            prev.next = temp.next
+            temp = temp.next
+        else:
+            prev = temp
+            temp = temp.next      
+    lst_node = Node(sum)
+    prev.next = lst_node
+    lst_node.next = head
+</font>   
+    return head
+
+
+
+
+
+
+<a name="2"></a><font color="#0000FF"><a href="match31-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_8.gif"/></a>
+
+Task6: Pair join
+def pairJoin( dh1, dh2 ):
+    temp1 = dh1.next
+    temp2 = dh2.next
+
+
+    while temp1 != None and temp2 != None:
+        next1 = temp1.next
+        next2 = temp2.next
+
+
+        temp1.next = temp2
+        temp2.prev = temp1
+</font>        temp2.next = next1
+        if next1 != None:
+<a name="5"></a><font color="#FF0000"><a href="match31-1.html#5" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_5.gif"/></a>
+
+           next1.prev = temp2
+        temp1 = next1
+        temp2 = next2
+
+
+    tail = dh1
+    while tail.next != None:
+       tail = tail.next
+    tail.next = dh1
+    dh1.prev = tail</font></pre>
+</body>
+</html>

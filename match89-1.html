@@ -1,0 +1,186 @@
+<html>
+<head>
+<title>A23_Sec26_22301089_Safin-Ahmed-Tonmoy.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec16_22301632_Pronoy-Das-Shopno.txt<p></p><pre>
+<a name="0"></a><font color="#FF0000"><a href="match89-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_8.gif"/></a>
+
+Task-1
+def check_similar(building_1, building_2):
+    h1= building_1
+    h2= building_2
+
+    while h1 and h2:
+        if h1.elem==h2.elem:
+            h1=h1.next
+            h2=h2.next
+        else:
+            return 'Not Similar'
+    if h1==None and h2==None:
+        return 'Similar'
+    else:
+        return 'Not Similar'
+</font>Task-2
+<a name="2"></a><font color="#0000FF"><a href="match89-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_8.gif"/></a>
+
+def sum_dist(head, arr):
+    sum = 0
+
+    for i in arr:
+        count = 0
+        temp = head
+
+        while temp is not None:
+            if count == i and temp.elem != i:
+                sum += temp.elem
+            temp = temp.next
+            count += 1
+    return sum
+</font>Task-3
+def alternate_merge(head1, head2):
+
+    if head1 is None:
+        return head2
+    if head2 is None:
+        return head1
+
+    current1 = head1
+    current2 = head2
+
+    while current1 and current2:
+        next1 = current1.next
+        next2 = current2.next
+
+        current1.next = current2
+        current2.next = next1
+
+        current1 = next1
+        current2 = next2
+
+    return head1
+Task-4
+def idGenerator(head1, head2, head3):
+    def reverse_list(head):
+        prev = None
+        current = head
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        return prev
+
+    reversed_head1 = reverse_list(head1)
+    
+    result_head = None
+    result_tail = None
+    
+    current = reversed_head1
+    while current:
+        new_node = Node(current.elem)
+        if result_head is None:
+            result_head = new_node
+            result_tail = new_node
+        else:
+            result_tail.next = new_node
+            result_tail = new_node
+        current = current.next
+    
+    current2 = head2
+    current3 = head3
+    while current2 and current3:
+        sum_digit = (current2.elem + current3.elem) % 10
+        new_node = Node(sum_digit)
+        result_tail.next = new_node
+        result_tail = new_node
+        current2 = current2.next
+        current3 = current3.next
+    
+    return result_head
+Task-5
+def sumOddAppend( head ):
+    if head is None or head.next is None:
+        return
+
+    odd_sum = 0
+    prev = head  # Start with dummy head
+    current = head.next
+    while current != head:
+<a name="4"></a><font color="#FF00FF"><a href="match89-0.html#4" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_4.gif"/></a>
+
+        if current.elem % 2 == 1:
+            odd_sum += current.elem
+            prev.next = current.next
+            current = current.next
+        else:
+            prev = current
+            current = current.next
+</font>    if odd_sum &gt; 0:
+        sum_node = Node(odd_sum)
+        last = head
+        while last.next != head:
+            last = last.next
+
+
+        last.next = sum_node
+        sum_node.next = head
+Task-6
+def pairJoin( dhead1, dhead2 ):
+    current1 = dhead1.next
+    current2 = dhead2.next
+    last_node = dhead1
+<a name="1"></a><font color="#00FF00"><a href="match89-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_8.gif"/></a>
+
+    while current1 is not None and current2 is not None:
+
+        next1 = current1.next
+        next2 = current2.next
+
+        last_node.next = current1
+        current1.prev = last_node
+        last_node = current1
+
+        last_node.next = current2
+        current2.prev = last_node
+        last_node = current2
+
+        current1 = next1
+        current2 = next2
+
+    last_node.next = dhead1
+    dhead1.prev = last_node
+</font>
+Task-7
+def rangeMove(dhead1, start, end):
+    
+    if not dhead1 or not dhead1.next or dhead1.next == dhead1:
+        return
+    
+<a name="3"></a><font color="#00FFFF"><a href="match89-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_7.gif"/></a>
+
+    original_last = dhead1.prev
+    
+    current = dhead1.next
+    
+    while current != dhead1:
+        next_node = current.next
+        
+        if start &lt;= current.elem &lt;= end:
+            current.prev.next = current.next
+            current.next.prev = current.prev
+            
+            current.prev = dhead1.prev
+</font>            current.next = dhead1
+            dhead1.prev.next = current
+            dhead1.prev = current
+        
+        if current == original_last:
+            break
+            
+        current = next_node
+
+</pre>
+</body>
+</html>

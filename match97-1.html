@@ -1,0 +1,162 @@
+<html>
+<head>
+<title>A23_Sec08_23201286_Khandaker-Fazley-Inan.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec20_22201240_Abdullah-Al-Anan.txt<p></p><pre>
+# Assignment Task 1
+
+
+def check_similar(building_1, building_2):
+<a name="3"></a><font color="#00FFFF"><a href="match97-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_6.gif"/></a>
+
+  m = building_1
+  n = building_2
+  while m != None and n != None:
+    if m.elem != n.elem:
+      return 'Not Similar'
+    m = m.next
+    n = n.next
+  if m == None and n == None:
+</font>    return 'Similar'
+  else:
+    return 'Not Similar'
+
+
+# Assignment Task 2
+
+def sum_dist(head, arr):
+  total = 0
+  temp = head
+  for i in range(len(arr)):
+    x = arr[i]
+    temp = head
+    for j in range(x):
+      if temp != None:
+        temp = temp.next
+    if temp != None:
+      total += temp.elem
+  return total
+
+
+# Assignment Task 3
+
+def alternate_merge(head1, head2):
+  m,n = head1,head2
+<a name="4"></a><font color="#FF00FF"><a href="match97-0.html#4" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_6.gif"/></a>
+
+  while m!=None and n!=None:
+    temp1 = m.next
+    temp2 = n.next
+    m.next = n
+    n.next = temp1
+    m = temp1
+    n = temp2
+  return head1
+</font>
+
+# Assignment Task 4
+
+
+def reverse(head):
+  pointer = head
+  new_head = None
+  while pointer != None:
+    temp = pointer.next
+    pointer.next = new_head
+    new_head = pointer
+    pointer = temp
+  return new_head
+
+def idGenerator(head1, head2, head3):
+  head1 = reverse(head1)
+  p1 = head1
+  while p1.next != None:
+    p1 = p1.next
+    p2 = head2
+    p3 = head3
+  while p2 != None and p3 != None:
+    if p2.elem + p3.elem &gt;= 10:
+      p2.elem = (p2.elem + p3.elem) % 10
+    else:
+      p2.elem += p3.elem        
+      p2 = p2.next
+      p3 = p3.next
+  p1.next = head2
+  return head1
+
+
+# Assignment Task 5 
+
+def sumOddAppend( head ):
+  current = head.next
+<a name="0"></a><font color="#FF0000"><a href="match97-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_14.gif"/></a>
+
+  prev = head
+  sum = 0
+  while current != head:
+    if current.elem % 2 != 0:
+      sum += current.elem
+      prev.next = current.next
+      current = prev.next
+    else: 
+      prev = current 
+      current = current.next
+  new_node = Node(sum)
+  temp = head
+  while temp.next != head:
+    temp = temp.next
+  temp.next = new_node
+  new_node.next = head
+</font>
+
+# Assignment Task 6
+
+<a name="1"></a><font color="#00FF00"><a href="match97-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_7.gif"/></a>
+
+def pairJoin( dhead1, dhead2 ):
+  c1 = dhead1.next
+  c2 = dhead2.next
+  while c1 != None and c2 != None:
+    temp1 = c1.next
+    temp2 = c2.next
+    c1.next = c2
+    c2.prev = c1
+</font>    if temp1 != None:
+      c2.next = temp1
+      temp1.prev = c2
+    else:
+      c2.next = dhead1
+      dhead1.prev = c2
+    c1 = temp1
+    c2 = temp2
+
+# Assignment Task 7  
+
+def rangeMove( dhead1, start, end ):
+    current = dhead1.next
+    while current != None:
+        next_node = current.next
+<a name="2"></a><font color="#0000FF"><a href="match97-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_7.gif"/></a>
+
+        if start &lt;= current.elem &lt;= end:
+            current.prev.next = current.next
+            current.next.prev = current.prev
+            temp = dhead1.prev
+            temp.next = current
+            current.prev = temp
+            current.next = dhead1
+</font>            dhead1.prev = current
+        current = next_node
+
+
+
+   
+
+
+
+
+</pre>
+</body>
+</html>

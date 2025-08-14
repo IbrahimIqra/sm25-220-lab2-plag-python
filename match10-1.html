@@ -1,0 +1,192 @@
+<html>
+<head>
+<title>A23_Sec27_23201462_RUBAB-SAZDA-.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec08_23201286_Khandaker-Fazley-Inan.txt<p></p><pre>
+﻿Lab-2
+
+
+Task-1
+def check_similar(building_1, building_2):
+  b1=building_1
+  b2=building_2
+<a name="3"></a><font color="#00FFFF"><a href="match10-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_6.gif"/></a>
+
+  temp1=b1
+  temp2=b2
+  while temp1!=None and temp2!=None:
+    if temp1.elem != temp2.elem :
+      return "Not Similar"
+    temp1=temp1.next
+    temp2=temp2.next
+
+
+  if temp1 != None or temp2 != None:
+</font>      return "Not Similar"
+  return "Similar"
+
+
+
+Task-2
+def sum_dist(head, arr):
+
+
+  listL= length(head)
+  sum=0
+  for i in arr:
+    if i&lt;listL:
+      temp=head
+
+
+      for j in range(i):
+
+
+        temp=temp.next
+      sum+=temp.elem
+  return sum
+
+
+def length(head):
+  t=head
+  count=0
+  while t!=None:
+    count+=1
+    t=t.next
+  return count
+
+
+
+
+Task-3
+<a name="4"></a><font color="#FF00FF"><a href="match10-0.html#4" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_5.gif"/></a>
+
+def alternate_merge(head1, head2):
+  h1=head1
+  h2=head2
+
+
+  while h1!=None  and h2!=None:
+    next1 =h1.next
+    next2 =h2.next
+
+
+    h1.next= h2
+</font>    h2.next=next1
+    h1=next1
+    h2=next2
+
+
+  return head1
+
+
+
+Task-4
+def idGenerator(head1, head2, head3):
+  h1=head1
+  h2=head2
+  h3=head3
+  sum=0
+<a name="5"></a><font color="#FF0000"><a href="match10-0.html#5" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_4.gif"/></a>
+
+  m= Node(None)
+  temp=m
+  while h1!=None:
+    next=h1.next
+    h1.next=m
+    m=h1
+    h1=next
+    sum=h2.elem+h3.elem
+</font>    h2=h2.next
+    h3=h3.next
+    if sum&gt;=10:
+      sum=sum%10
+    print(sum)
+    while temp.next != None :
+        temp = temp.next
+    temp.next = Node(sum)
+    while
+
+
+  return m
+
+Lab-3
+
+Task-5
+<a name="1"></a><font color="#00FF00"><a href="match10-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_10.gif"/></a>
+
+def sumOddAppend( head ):
+  prev=head
+  main=head.next
+  sum=0
+  while main!= head :
+    if main.elem%2 !=0:
+      sum+=main.elem
+      prev.next =main.next
+      main=main.next
+    else:
+      prev=main
+      main=main.next
+  new=Node(sum)
+  temp=head
+</font>  while temp.next!=head:
+    temp=temp.next
+  temp.next=new
+  new.next=head
+
+Task-6
+<a name="0"></a><font color="#FF0000"><a href="match10-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_14.gif"/></a>
+
+def pairJoin(dhead1, dhead2):
+
+
+    temp1=dhead1.next
+    temp2=dhead2.next
+    while temp1!= None and  temp2!=None:
+        n1=temp1.next
+        n2= temp2.next
+        temp1.next =temp2
+        temp2.prev=temp1
+        temp2.next=n1
+        if n1!=None:
+            n1.prev = temp2
+        temp1=n1
+        temp2=n2
+
+
+    temp=dhead1
+    while temp.next!= None:
+        temp=temp.next
+    dhead1.prev=temp
+    temp.next=dhead1
+</font>Task-7
+def rangeMove(dhead1, start, end):
+
+
+    main=dhead1.next
+    last=dhead1.prev  
+    stop=last        
+    while main!=stop.next :
+        next1=main.next
+
+
+<a name="2"></a><font color="#0000FF"><a href="match10-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_8.gif"/></a>
+
+        if start&lt;=main.elem and main.elem&lt;= end:
+
+
+            main.prev.next=main.next
+            main.next.prev= main.prev
+
+
+            last.next=main
+
+
+            main.prev=last
+            main.next=dhead1
+            dhead1.prev=main
+            last= main
+        main=next1</font></pre>
+</body>
+</html>

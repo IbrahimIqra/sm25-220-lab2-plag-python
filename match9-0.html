@@ -1,0 +1,184 @@
+<html>
+<head>
+<title>A23_Sec22_23101403_Muztabir-Mohammad-Labib.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec22_23101403_Muztabir-Mohammad-Labib.txt<p></p><pre>
+ASSIGNMENT2
+Task1
+<a name="2"></a><font color="#0000FF"><a href="match9-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_5.gif"/></a>
+
+def check_similar(building_1, building_2):
+  
+  while building_1 and building_2: 
+
+    if building_1.elem!=building_2.elem:
+
+       return "Not similar"
+
+    building_1=building_1.next
+    building_2=building_2.next
+
+  if building_1==None and building_2==None:
+</font>
+       return "Similar"
+
+  else:
+
+       return "Not Similar"
+
+
+
+
+
+Task2
+def sum_dist(head, arr):
+  
+   total=0
+
+   for i in range(len(arr)):
+
+     f1=head
+     f2=arr[i]
+     z=0
+
+     while f1!=None and z&lt;f2:
+
+      f1=f1.next
+      z+=1
+
+     if f1!=None:
+      
+      total+=f1.elem
+     else:
+      total+=0
+
+   return total
+
+
+Task3
+<a name="1"></a><font color="#00FF00"><a href="match9-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_23.gif"/></a>
+
+def alternate_merge(head1, head2):
+    tail_1 = head1.next
+    tail_2 = head2
+    New = Node(head1.elem)
+    tail = new_n
+    while tail_1 != None or tail_2 != None:
+        if tail_2 != None and tail_1 != None:
+            tail.next = Node(tail_2.elem)
+            tail = tail.next
+            tail.next = Node(tail_1.elem)
+            tail = tail.next
+            tail_1 = tail_1.next
+            tail_2 = tail_2.next
+        elif tail_1 == None and tail_2 != None:
+            tail.next = Node(tail_2.elem)
+            tail =tail.next
+            tail_2 = tail_2.next
+        else:
+            tail.next = Node(tail_2.elem)
+            tail =tail.next
+            tail = tail_1.next
+      n=Node(None)
+      tail.next=n
+   return new_n
+</font>
+
+Task4
+<a name="0"></a><font color="#FF0000"><a href="match9-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_23.gif"/></a>
+
+def idGenerator(head1, head2, head3):
+    prev = None
+    curb = head1
+    while curb is not None:
+        next_node = curb.next
+        curb.next = prev
+        prev = curb
+        curb = next_node
+    head1 = prev
+  
+
+    dummy = Node(None)
+    tail = dummy
+    while head2 and head3:
+        sum = (head2.elem + head3.elem) % 10 
+        tail.next = Node(sum)
+        tail = tail.next
+        head2 = head2.next
+        head3 = head3.next
+
+    tail.next = None
+    new_tail = dummy.next
+    while new_tail and new_tail.next:
+        new_tail = new_tail.next
+    if new_tail:
+        new_tail.next = None
+
+    tail = head1
+    while tail.next:
+       tail = tail.next
+    tail.next = dummy.next
+    return head1        
+ASSIGNMENT3
+</font>TASK5
+def sumOddAppend( head ):
+    
+    total_odd = 0
+    prev = head
+    cnode = head.next
+    
+    while cnode != head: 
+
+         if cnode.elem % 2 != 0:
+            total_odd += cnode.elem
+            prev.next = cnode.next
+            cnode = cnode.next
+
+         else:
+            prev = cnode
+            cnode = cnode.next
+    
+   
+    new_node = Node(total_odd)
+    prev = head
+    cnode = head.next
+   
+    while cnode != head:
+
+        prev = cnode
+        cnode = cnode.next
+
+    prev.next = new_node
+    new_node.next = head
+
+TASK6
+def pairJoin( dhead1, dhead2 ):
+    cnode1 = dhead1.next
+
+    cnode2 = dhead2.next
+    
+    while cnode1 != 0 and cnode2 != 0:
+        
+        next1 = cnode1.next
+        next2 = cnode2.next
+        
+       
+        cnode1.next = cnode2
+        cnode2.prev = cnode1
+        
+       
+        if next1 == None:
+
+            cnode2.next = next1
+            next1.prev = cnode2
+
+        else:
+            cnode2.next == 0 
+        cnode1 = next1
+        cnode2 = next2
+
+TASK7</pre>
+</body>
+</html>

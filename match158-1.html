@@ -1,0 +1,186 @@
+<html>
+<head>
+<title>A23_Sec24_22299426_jobayer-alam.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec24_23201569_Sayed-Sahariar-Mahmud-Shawn.txt<p></p><pre>
+﻿Task 1
+
+
+<a name="2"></a><font color="#0000FF"><a href="match158-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_6.gif"/></a>
+
+def check_similar(building_1, building_2):
+    b1=building_1
+    b2=building_2
+    def count(head):
+        count = 0
+        current = head
+        while current:
+            count += 1
+            current = current.next
+        return count
+    if count(building_1)!=count(building_2):
+      return 'Not Similar'
+    while b1!=None and b2!=None:
+</font>      if b1.elem!=b2.elem:
+        return 'Not Similar'
+      b1=b1.next
+      b2=b2.next
+    return 'Similar'
+
+
+
+
+Task 2
+
+
+def sum_dist(head, arr):
+    def nodeat(head,id):
+        count=0
+        temp=head
+        while temp!=None:
+            if count==id:
+                return temp
+            temp=temp.next
+            count+=1
+    sum=0
+    for i in range(len(arr)):
+        if nodeat(head,arr[i])!=None:
+            sum+=(nodeat(head,arr[i]).elem)
+    return sum
+
+
+
+
+
+
+Task 3
+def alternate_merge(head1, head2):
+    temp_1=head1
+    temp_2=head2
+    dh=Node("None")
+    current=dh
+    while temp_1 and temp_2:
+        current.next=temp_1
+        current=current.next
+        temp_1=temp_1.next
+        current.next=temp_2
+        current=current.next
+        temp_2=temp_2.next
+    if temp_1 is not None:
+        current.next=temp_1
+        current=current.next
+        temp_1=temp_1.next
+    if temp_2 is not None:
+        current.next=temp_2
+        current=current.next
+        temp_2=temp_2.next
+    return dh.next
+
+
+Task 4
+def idGenerator(head1, head2, head3):
+    temp1=head1
+    temp2=head2
+    temp3=head3
+    dh=Node("None")
+    curr=dh
+    prev=None
+    while temp1:
+        nextNode=temp1.next
+        temp1.next=prev
+        prev=temp1
+        temp1=nextNode
+    temp1=prev
+    while temp1:
+        curr.next=Node(temp1.elem)
+        curr=curr.next
+        temp1=temp1.next
+    while temp2 and temp3:
+        total=temp2.elem+temp3.elem
+        mod=total%10
+        current.next=Node(mod)
+        current=current.next
+        temp2=temp2.next
+        temp3=temp3.next
+    return dh.next
+
+
+Task 5
+<a name="3"></a><font color="#00FFFF"><a href="match158-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_5.gif"/></a>
+
+def sumOddAppend( head ):
+    if head is None or head.next == head:
+        return
+    prev = head
+    curr = head.next
+    odd_sum = 0
+
+
+    while curr != head:
+        if curr.elem % 2 == 1:
+</font>            odd_sum += curr.elem
+            prev.next = curr.next
+            curr = prev.next
+        else:
+            prev = curr
+            curr = curr.next
+    if odd_sum &gt; 0:
+<a name="0"></a><font color="#FF0000"><a href="match158-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_12.gif"/></a>
+
+        n_node = Node(odd_sum)
+        prev.next = n_node
+        n_node.next = head
+
+
+Task 6
+def pairJoin(dHead1, dHead2):
+    cur1 = dHead1.next
+    cur2 = dHead2.next
+    tail = dHead1
+
+
+    while cur1 and cur2:
+        tail.next = cur1
+        cur1.prev = tail
+        tail = cur1
+        cur1 = cur1.next
+        tail.next = cur2
+        cur2.prev = tail
+        tail = cur2
+        cur2 = cur2.next
+    tail.next = dHead1
+    dHead1.prev = tail
+</font>
+
+Task 7:
+def rangeMove(head, start, end):
+    if head is None or head.next == head:
+        return
+    curr = head.next
+    or_tail = head.prev
+    move_until = or_tail
+
+
+<a name="1"></a><font color="#00FF00"><a href="match158-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_7.gif"/></a>
+
+    while True:
+        next_node = curr.next
+        if start &lt;= curr.elem &lt;= end:
+            curr.prev.next = curr.next
+            curr.next.prev = curr.prev
+            tail = head.prev
+            tail.next = curr
+            curr.prev = tail
+            curr.next = head
+</font>            head.prev = curr
+
+
+        if curr == move_until:
+            break
+
+
+        curr = next_node</pre>
+</body>
+</html>

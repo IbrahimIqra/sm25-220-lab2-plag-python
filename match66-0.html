@@ -1,0 +1,380 @@
+<html>
+<head>
+<title>A23_Sec05_22201732_PUSPITA-BANIK.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec05_22201732_PUSPITA-BANIK.txt<p></p><pre>
+﻿Assignment Task 1:
+def check_similar(building_1, building_2):
+  count=0
+  head= building_1
+  while head!= None:
+    count+=1
+    head= head.next
+  count2=0
+  head2= building_2
+  while head2!=None:
+    count2+=1
+    head2= head2.next
+  if count!=count2:
+    return("Not Similar")
+  else:
+    final= building_1
+    final2= building_2
+<a name="4"></a><font color="#FF00FF"><a href="match66-1.html#4" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_2.gif"/></a>
+
+    while final!=None:
+      if final.elem!=final2.elem:
+        return("Not Similar")
+      final= final.next
+      final2= final2.next
+    return("Similar")
+</font>
+
+
+
+#[DO NOT MODIFY THE TESTER CODES BELOW]
+#[THERE WILL BE 50% PENALTY IF IT'S MODIFIED]
+print('==============Test Case 1=============')
+building_1 = createList(np.array(['Red', 'Green', 'Yellow', 'Red', 'Blue', 'Green']))
+building_2 = createList(np.array(['Red', 'Green', 'Yellow', 'Red', 'Blue', 'Green']))
+print('Building 1: ', end = ' ')
+printLinkedList(building_1)
+print('Building 2: ', end = ' ')
+printLinkedList(building_2)
+returned_value = check_similar(building_1, building_2)
+print(returned_value) #This should print 'Similar'
+unittest.output_test(returned_value, 'Similar')
+print()
+
+
+print('==============Test Case 2=============')
+building_1 = createList(np.array(['Red', 'Green', 'Yellow', 'Red', 'Yellow', 'Green']))
+building_2 = createList(np.array(['Red', 'Green', 'Yellow', 'Red', 'Blue', 'Green']))
+print('Building 1: ', end = ' ')
+printLinkedList(building_1)
+print('Building 2: ', end = ' ')
+printLinkedList(building_2)
+returned_value = check_similar(building_1, building_2)
+print(returned_value) #This should print 'Not Similar'
+unittest.output_test(returned_value, 'Not Similar')
+print()
+
+
+print('==============Test Case 3=============')
+building_1 = createList(np.array(['Red', 'Green', 'Yellow', 'Red', 'Blue', 'Green']))
+building_2 = createList(np.array(['Red', 'Green', 'Yellow', 'Red', 'Blue', 'Green', 'Blue']))
+print('Building 1: ', end = ' ')
+printLinkedList(building_1)
+print('Building 2: ', end = ' ')
+printLinkedList(building_2)
+returned_value = check_similar(building_1, building_2)
+print(returned_value) #This should print 'Not Similar'
+unittest.output_test(returned_value, 'Not Similar')
+print()
+
+
+print('==============Test Case 4=============')
+building_1 = createList(np.array(['Red', 'Green', 'Yellow', 'Red', 'Blue', 'Green', 'Blue']))
+building_2 = createList(np.array(['Red', 'Green', 'Yellow', 'Red', 'Blue', 'Green']))
+print('Building 1: ', end = ' ')
+printLinkedList(building_1)
+print('Building 2: ', end = ' ')
+printLinkedList(building_2)
+returned_value = check_similar(building_1, building_2)
+print(returned_value) #This should print 'Not Similar'
+unittest.output_test(returned_value, 'Not Similar')
+print()
+
+
+
+
+Assignment Task 2:
+def sum_dist(head, arr):
+  sum=0
+  for i in range(len(arr)):
+    temp=head
+    count=0
+    while temp!=None:
+      if count==arr[i]:
+        sum+=temp.elem
+
+
+      count+=1
+
+
+      temp=temp.next
+  return(sum)
+
+
+
+
+#[DO NOT MODIFY THE TESTER CODES BELOW]
+#[THERE WILL BE 50% PENALTY IF IT'S MODIFIED]
+print('==============Test Case 1=============')
+LL1 = createList(np.array([10,16,-5,9,3,4]))
+dist = np.array([2,0,5,2,8])
+returned_value = sum_dist(LL1, dist)
+print(f'Sum of Nodes: {returned_value}') #This should print Sum of Nodes: 4
+unittest.output_test(returned_value, 4)
+print()
+
+
+
+
+Assignment Task 3:
+def alternate_merge(head1, head2):
+  temp1 = head1
+  temp2 = head2
+
+
+  while temp1 != None and temp2 != None:
+    next1 = temp1.next
+    next2 = temp2.next
+
+
+    temp1.next = temp2
+    temp2.next = next1
+
+
+    temp1 = next1
+    temp2 = next2
+
+
+
+
+  return (head1)
+
+
+
+
+print('==============Test Case 1=============')
+head1 = createList(np.array([1,2,6,8,11]))
+head2 = createList(np.array([5,7,3,9,4]))
+
+
+print("Linked List 1:")
+printLinkedList(head1)
+print("Linked List 2:")
+printLinkedList(head2)
+
+
+head = alternate_merge(head1, head2)
+print("Merged Linked List:")
+printLinkedList(head)    #This should print    1 --&gt; 5 --&gt; 2 --&gt; 7 --&gt; 6 --&gt; 3 --&gt; 8 --&gt; 9 --&gt; 11 --&gt; 4
+
+
+
+
+print('==============Test Case 2=============')
+head1 = createList(np.array([5, 3, 2, -4]))
+head2 = createList(np.array([-4, -6, 1]))
+
+
+print("Linked List 1:")
+printLinkedList(head1)
+print("Linked List 2:")
+printLinkedList(head2)
+
+
+head = alternate_merge(head1, head2)
+print("Merged Linked List:")
+printLinkedList(head)    #This should print    5 → -4 -&gt; 3 → -6 -&gt; 2 -&gt; 1 -&gt; -4
+
+
+
+
+print('==============Test Case 3=============')
+head1 = createList(np.array([4, 2, -2, -4]))
+head2 = createList(np.array([8, 6, 5, -3]))
+
+
+print("Linked List 1:")
+printLinkedList(head1)
+print("Linked List 2:")
+printLinkedList(head2)
+
+
+head = alternate_merge(head1, head2)
+print("Merged Linked List:")
+printLinkedList(head)    #This should print   4-&gt; 8 → 2-&gt; 6 → -2 → 5 → -4 -&gt; -3
+
+
+
+
+Assignment Task 4:
+def idGenerator(head1, head2, head3):
+    reversed_head1 = reverseList(head1)
+    new_head = reversed_head1
+
+
+    tail = new_head
+    while tail and tail.next:
+        tail = tail.next
+
+
+    while head2 and head3:
+<a name="5"></a><font color="#FF0000"><a href="match66-1.html#5" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_2.gif"/></a>
+
+        digit_sum = (head2.elem + head3.elem) % 10
+        new_node = Node(digit_sum)
+        tail.next = new_node
+        tail = new_node
+        head2 = head2.next
+        head3 = head3.next
+</font>
+
+    return new_head
+
+
+def reverseList(head):
+    prev, curr = None, head
+    while curr:
+        next_node = curr.next
+        curr.next = prev
+        prev = curr
+        curr = next_node
+    return prev
+
+
+
+
+
+
+print('==============Test Case 1=============')
+head1 = createList(np.array([0,3,2,2]))
+head2 = createList(np.array([5,2,2,1]))
+head3 = createList(np.array([4,3,2,1]))
+
+
+print("Linked List 1:")
+printLinkedList(head1)
+print("Linked List 2:")
+printLinkedList(head2)
+print("Linked List 3:")
+printLinkedList(head3)
+
+
+result = idGenerator(head1, head2, head3)
+print("New ID:")
+printLinkedList(result)    #This should print  2 → 2 → 3 → 0 → 9 → 5 → 4 → 2
+
+
+
+
+print('==============Test Case 2=============')
+head1 = createList(np.array([0,3,9,1]))
+head2 = createList(np.array([3,6,5,7]))
+head3 = createList(np.array([2,4,3,8]))
+
+
+print("Linked List 1:")
+printLinkedList(head1)
+print("Linked List 2:")
+printLinkedList(head2)
+print("Linked List 3:")
+printLinkedList(head3)
+
+
+result = idGenerator(head1, head2, head3)
+print("New ID:")
+printLinkedList(result)    #This should print 1 → 9 → 3 → 0 → 5 → 0 → 8 → 
+
+
+Assignment Task 5:
+def sumOddAppend( head ):
+    if not head or head.next == head:
+        return
+
+
+<a name="1"></a><font color="#00FF00"><a href="match66-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_4.gif"/></a>
+
+    prev = head
+    current = head.next
+    odd_sum = 0
+
+
+    while current != head:
+        if current.elem % 2 == 1:
+            odd_sum += current.elem
+            prev.next = current.next  
+            current = prev.next      
+        else:
+            prev = current
+            current = current.next
+</font>
+
+    if odd_sum &gt; 0:
+<a name="2"></a><font color="#0000FF"><a href="match66-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_3.gif"/></a>
+
+        new_node = DNode(odd_sum)  
+        new_node.next = head
+        prev.next = new_node
+
+
+
+
+
+
+Assignment Task 6:
+def pairJoin( dhead1, dhead2 ):
+    c1 = dhead1.next  
+    c2 = dhead2.next  
+    curr = dhead1        
+    while c1 and c2:
+</font><a name="6"></a><font color="#00FF00"><a href="match66-1.html#6" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_2.gif"/></a>
+
+        curr.next = c1
+        c1.prev = curr
+        curr = c1
+        c1 = c1.next
+
+
+        curr.next = c2
+        c2.prev = curr
+</font><a name="3"></a><font color="#00FFFF"><a href="match66-1.html#3" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_3.gif"/></a>
+
+        curr = c2
+        c2 = c2.next
+
+
+    curr.next = dhead1
+    dhead1.prev = curr
+
+
+
+
+
+
+Assignment Task 7:
+def rangeMove( dhead1, start, end ):
+    c = dhead1.next
+    s = dhead1  
+</font>    t= dhead1.prev  
+
+
+<a name="0"></a><font color="#FF0000"><a href="match66-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_4.gif"/></a>
+
+    while c != stop:
+        next_node = c.next  
+
+
+        if s &lt;= c.elem &lt;= end:
+            c.prev.next = c.next
+            c.next.prev = c.prev
+
+
+         
+            t.next = c
+            c.prev = t
+            c.next = dhead1
+            dhead1.prev = c
+</font>
+
+            t = c
+
+
+        c = next_node</pre>
+</body>
+</html>

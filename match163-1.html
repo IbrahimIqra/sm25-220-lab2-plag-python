@@ -1,0 +1,200 @@
+<html>
+<head>
+<title>A23_Sec08_23201286_Khandaker-Fazley-Inan.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec24_22101341_Suvro-Singha.txt<p></p><pre>
+#assignment2_task1 
+def check_similar(building_1, building_2):
+  checker = 'Not Similar'
+
+  current1 = building_1
+  len1 = 0
+  while current1:
+    len1 += 1
+    current1 = current1.next
+
+  current2 = building_2
+  len2= 0
+  while current2:
+    len2 += 1
+    current2 = current2.next
+
+
+  new1= building_1
+  new2 = building_2
+
+  if len1 == len2 :
+    a = 'Similar'
+    while new1 and new2 :
+      if new1.elem == new2.elem :
+        pass
+      else :
+        a = 'Not Similar'
+      new1 = new1.next
+      new2 = new2.next
+    checker = a
+
+
+  else:
+    return checker
+  return checker
+
+
+
+
+#Assignment 2 task 2 
+def sum_dist(head, arr):
+  a= head
+  total = 0
+
+  len = 0
+  current = head
+  while current:
+    len += 1
+    current = current.next
+
+  for i in arr:
+    if i&lt; len:
+      for j in range(i):
+        head = head.next
+      total += head.elem
+      head = a
+  return  total
+
+
+
+
+#Assignment2_task3
+<a name="2"></a><font color="#0000FF"><a href="match163-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_7.gif"/></a>
+
+def alternate_merge(head1, head2):
+  prothom = head1
+  ditiyo = head2
+
+  while prothom != None and ditiyo!= None :
+
+    save1= prothom.next
+    save2= ditiyo.next
+
+    prothom.next = ditiyo
+    ditiyo.next = save1
+
+    prothom = save1
+    ditiyo = save2
+
+  return head1
+</font>
+
+
+#Assignment2 task4 
+def idGenerator(head1, head2, head3):
+  prev = None
+  current = head1
+  while current :
+    next_node = current.next   # 3
+    current.next = prev    #2 -&gt; 1
+    prev = current  #2
+    current = next_node #3
+  new = prev
+  head = new     #fix korte hobbe cause still 0 3 2 2
+  while new.next:
+    new = new.next
+
+  while head2 and head3:
+    jogfol = head2.elem + head3.elem
+    if jogfol &gt;= 10:
+      a = Node(jogfol % 10)
+    else:
+      a = Node(jogfol)
+    new.next = a
+    new = new.next
+    head2 = head2.next
+    head3 = head3.next
+
+  return head
+
+
+#assignment3 Task 5
+def sumOddAppend( head ):
+<a name="1"></a><font color="#00FF00"><a href="match163-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_10.gif"/></a>
+
+  ager_node= head
+  ppointer = head.next
+  jogfol = 0
+
+  while ppointer != head:
+    if ppointer.elem %2 != 0 :
+      jogfol +=ppointer.elem
+      ager_node.next= ppointer.next
+      ppointer = ppointer.next
+    else:
+      ager_node = ppointer                           #ager_node er ppointer smane nibo
+      ppointer = ppointer.next
+  notun_node = Node(jogfol)
+  ager_node.next = notun_node
+</font>  notun_node.next = head
+
+  return head
+
+#assignment 3 task 6 
+<a name="3"></a><font color="#00FFFF"><a href="match163-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_7.gif"/></a>
+
+def pairJoin( dhead1, dhead2 ):
+  prothom = dhead1.next
+  ditiyo = dhead2.next
+  while prothom != dhead1 and ditiyo != dhead2 :
+    save_1 = prothom.next
+    save_2 = ditiyo.next
+
+
+
+    prothom.next = ditiyo
+    ditiyo.prev = prothom
+</font>    if save_1 != dhead1:
+      ditiyo.next = save_1
+      save_1.prev = ditiyo
+
+    prothom = save_1 #nahole  haraye jacche onek bar add er por
+    ditiyo= save_2
+
+
+    last_element = dhead1    #lAST pointer fix
+    while last_element.next != dhead1 and last_element.next is not None:
+      last_element = last_element.next
+
+    last_element.next = dhead1
+    dhead1.prev = last_element
+
+  return dhead1
+
+
+#assignment3 task 7
+
+def rangeMove( dhead1, start, end ):
+    stored_tail = dhead1.prev
+    tail = dhead1.prev
+    pointer = dhead1.next
+<a name="0"></a><font color="#FF0000"><a href="match163-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_11.gif"/></a>
+
+    while pointer != stored_tail.next :
+      next_pointer = pointer.next
+      if start &lt;= pointer.elem and pointer.elem &lt;= end:
+
+        pointer.prev.next = pointer.next
+        pointer.next.prev= pointer.prev
+        tail.next = pointer
+        pointer.prev = tail
+        pointer.next = dhead1
+        dhead1.prev = pointer
+
+        tail = pointer
+
+      pointer = next_pointer # nahole haraye felchilam
+</font>    return dhead1
+
+
+</pre>
+</body>
+</html>

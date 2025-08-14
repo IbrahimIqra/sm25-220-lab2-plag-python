@@ -1,0 +1,210 @@
+<html>
+<head>
+<title>A23_Sec25_23201202_Leon-Ghosh.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A23_Sec25_23201202_Leon-Ghosh.txt<p></p><pre>
+﻿Lab2:
+
+
+//Task1
+<a name="4"></a><font color="#FF00FF"><a href="match137-1.html#4" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_4.gif"/></a>
+
+def check_similar(building_1, building_2):
+    temp_1 = building_1
+    temp_2 = building_2
+    while temp_1 != None and temp_2 != None:
+        if temp_1.elem != temp_2.elem:
+            return 'Not Similar'
+</font>        elif temp_1.elem == temp_2.elem:
+            temp_1 = temp_1.next
+            temp_2 = temp_2.next
+    if temp_1 == None and temp_2 == None:
+        return 'Similar'
+    else:
+        return 'Not Similar'
+
+
+//Task2 
+def sum_dist(head, arr):
+  list_sum = 0
+  for d in arr:
+    lst_idx = 0
+    temp = head
+    while lst_idx &lt; d:
+        if temp != None:
+            temp = temp.next
+            lst_idx += 1
+        else:
+            break
+    if temp != None:
+        list_sum += temp.elem
+  return list_sum
+
+
+
+
+//Task3
+def alternate_merge(head1, head2):
+<a name="2"></a><font color="#0000FF"><a href="match137-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_5.gif"/></a>
+
+    ptr_1 = head1
+    ptr_2 = head2
+    while ptr_1 != None and ptr_2 != None:
+        temp1 = ptr_1.next
+        temp2 = ptr_2.next
+        ptr_1.next = ptr_2
+        ptr_2.next = temp1
+</font>
+
+        ptr_1 = temp1
+        ptr_2 = temp2
+    return head1
+
+
+
+
+//Task4
+def idGenerator(head1, head2, head3):
+    rev_head1 = reverse_list(head1)
+
+
+    new_head = sum_list(head2, head3)
+
+
+    temp = rev_head1
+    if temp is None:
+        return new_head
+    while temp.next is not None:
+        temp = temp.next
+    temp.next = new_head
+
+
+    return rev_head1
+
+
+def sum_list(head2,head3):
+    temp2 = head2
+<a name="3"></a><font color="#00FFFF"><a href="match137-1.html#3" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_4.gif"/></a>
+
+    temp3 = head3
+    sum_head = None
+    tail = None
+    while temp2 != None and temp3 != None:
+        res = temp2.elem+temp3.elem
+        if res &gt;= 10:
+            dig = res % 10
+</font>        else:
+            dig = res
+
+
+        new_node = Node(dig)
+        if sum_head == None:
+            sum_head = new_node
+            tail = new_node
+        else:
+            tail.next = new_node
+            tail = tail.next
+
+
+        temp2 = temp2.next
+        temp3 = temp3.next
+    return sum_head
+
+
+def reverse_list(head1):
+    rev_head1 = None
+    temp = head1
+    while temp is not None:
+        next_node = temp.next    
+        temp.next = rev_head1    
+        rev_head1 = temp        
+        temp = next_node
+    return rev_head1
+
+
+
+
+
+
+Lab3
+
+
+//Task5
+def sumOddAppend( head ):
+    odd_sum = 0
+    prev = head
+    curr = head.next
+<a name="0"></a><font color="#FF0000"><a href="match137-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_8.gif"/></a>
+
+    while curr != head:
+        if curr.elem % 2 != 0:
+            odd_sum += curr.elem
+            prev.next = curr.next
+            curr = curr.next
+        else:
+            prev = curr
+            curr = curr.next
+    new_node = Node(odd_sum)
+    prev.next = new_node
+    new_node.next = head
+</font>    return head
+
+
+
+
+
+
+//Task6
+def pairJoin( dhead1, dhead2 ):
+    cp1 = dhead1.next
+    cp2 = dhead2.next
+    while cp1 != None and cp2 != None:
+        np1 = cp1.next
+<a name="5"></a><font color="#FF0000"><a href="match137-1.html#5" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_4.gif"/></a>
+
+        np2 = cp2.next
+        cp1.next = cp2
+        cp2.prev = cp1
+
+
+        if np1 != None:
+            cp2.next = np1
+            np1.prev = cp2
+</font>        cp1 = np1
+        cp2 = np2
+    dtail = dhead1
+    while dtail.next != None:
+        dtail = dtail.next
+    dtail.next = dhead1
+    dhead1.prev = dtail
+
+
+//Task7
+def rangeMove( dhead1, start, end ):
+    cr_pt = dhead1.next
+    d_tail = dhead1.prev
+<a name="1"></a><font color="#00FF00"><a href="match137-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_8.gif"/></a>
+
+    while cr_pt != dhead1:
+        next_node = cr_pt.next
+
+
+        if start &lt;= cr_pt.elem &lt;= end:
+            cr_pt.prev.next = cr_pt.next
+            cr_pt.next.prev = cr_pt.prev
+
+
+            d_tail.next = cr_pt
+            cr_pt.prev = d_tail
+            cr_pt.next = dhead1
+            dhead1.prev = cr_pt
+</font>
+
+            d_tail = cr_pt
+
+
+        cr_pt = next_node</pre>
+</body>
+</html>
